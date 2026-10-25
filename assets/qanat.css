@@ -363,3 +363,5 @@ sup.ref a:hover{color:var(--red)}
 #work{padding-top:64px}
 .sectors{border-bottom:0}
 #work.sec{border-top:1px solid var(--ink)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait .fig{z-index:2}
