@@ -359,3 +359,7 @@ sup.ref a:hover{color:var(--red)}
 .wnext:hover{background:var(--ink);color:var(--cream)}
 @media(max-width:700px){.wnexts{grid-template-columns:1fr}.wnext{border-right:0;border-bottom:1px solid var(--ink)}}
 .wcard .igl{display:inline-block;margin-top:6px;text-decoration:underline;text-underline-offset:3px}
+
+#work{padding-top:64px}
+.sectors{border-bottom:0}
+#work.sec{border-top:1px solid var(--ink)}
