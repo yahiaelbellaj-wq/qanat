@@ -58,3 +58,37 @@
     addEventListener('scroll', function(){ var y = scrollY; if (y < 1200){ hp.style.objectPosition = '50% ' + (50 + y*0.02) + '%'; hc.style.transform = 'rotate(-3deg) translateY(' + (-y*0.08) + 'px)'; } }, {passive:true});
   }
 })();
+
+/* booking drawer: opens Calendly when <html data-cal> holds the event URL; otherwise [data-book] links keep their WhatsApp href */
+(function(){
+  var cal = document.documentElement.dataset.cal;
+  if (!cal) return;
+  var wa = 'https://wa.me/971551397867?text=' + encodeURIComponent("Hi Yahia, I'd like to book the free 30-minute audit.");
+  var box = document.createElement('div');
+  box.className = 'book'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true'); box.setAttribute('aria-label','Book a free audit');
+  box.innerHTML = '<div class="book-bg"><span>Let\'s<br>talk<i>.</i></span></div>' +
+    '<div class="book-panel"><div class="book-head"><div><p class="mono" style="color:var(--muted);margin-bottom:6px">Free audit · Qanat</p><h2>Pick a slot</h2>' +
+    '<ul><li>30 min</li><li>Video or WhatsApp call</li><li>No slides</li><li>Written plan after</li></ul></div>' +
+    '<button class="book-x" type="button" aria-label="Close">×</button></div>' +
+    '<div class="book-frame"><div class="wait">Loading calendar…</div></div>' +
+    '<div class="book-alt">No slot that works? <a href="' + wa + '" target="_blank" rel="noopener">Message me on WhatsApp</a></div></div>';
+  document.body.appendChild(box);
+  var frame = box.querySelector('.book-frame'), last = null;
+  function open(e){
+    e.preventDefault(); last = document.activeElement;
+    if (!frame.querySelector('iframe')){
+      var q = 'embed_domain=' + location.hostname + '&embed_type=Inline&hide_gdpr_banner=1&background_color=f7f5ef&text_color=0d0d0f&primary_color=f2361d&utm_source=qanatstudio&utm_content=' + encodeURIComponent(location.pathname);
+      var f = document.createElement('iframe');
+      f.src = cal + (cal.indexOf('?') < 0 ? '?' : '&') + q; f.title = 'Book a free audit';
+      f.onload = function(){ var w = frame.querySelector('.wait'); if (w) w.remove(); };
+      frame.appendChild(f);
+    }
+    box.classList.add('on'); document.body.style.overflow = 'hidden';
+    box.querySelector('.book-x').focus();
+  }
+  function close(){ box.classList.remove('on'); document.body.style.overflow = ''; if (last) last.focus(); }
+  document.querySelectorAll('[data-book]').forEach(function(a){ a.addEventListener('click', open); });
+  box.querySelector('.book-x').addEventListener('click', close);
+  box.querySelector('.book-bg').addEventListener('click', close);
+  addEventListener('keydown', function(e){ if (e.key === 'Escape' && box.classList.contains('on')) close(); });
+})();
