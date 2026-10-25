@@ -16,9 +16,12 @@
   band.innerHTML = h + h;
 
   /* faces reel */
-  var reel = document.getElementById('reel'), base = reel.dataset.base || 'img/';
-  var fh = reel.dataset.faces.split(',').map(function(f){ return '<figure><img src="'+base+f+'.jpg" alt="" loading="lazy"></figure>'; }).join('');
-  reel.innerHTML = fh + fh;
+  var reel = document.getElementById('reel');
+  if (reel && reel.dataset.faces){
+    var base = reel.dataset.base || 'img/';
+    var fh = reel.dataset.faces.split(',').map(function(f){ return '<figure><img src="'+base+f+'.jpg" alt="" loading="lazy"></figure>'; }).join('');
+    reel.innerHTML = fh + fh;
+  }
 
   /* reveal */
   var els = [].slice.call(document.querySelectorAll('.rv'));
@@ -44,7 +47,7 @@
   if (reduce) document.querySelectorAll('[data-count]').forEach(function(el){ el.textContent = el.dataset.count; });
 
   /* service rows: image follows cursor */
-  var peek = document.getElementById('peek'), pimg = peek.querySelector('img'), mx=0,my=0,px=0,py=0,run=false;
+  var peek = document.getElementById('peek') || document.createElement('div'), pimg = peek.querySelector('img') || document.createElement('img'), mx=0,my=0,px=0,py=0,run=false;
   document.querySelectorAll('.row').forEach(function(row){
     row.addEventListener('mouseenter', function(){ pimg.src = row.dataset.img; peek.classList.add('on'); if(!run){run=true;loop();} });
     row.addEventListener('mouseleave', function(){ peek.classList.remove('on'); });
