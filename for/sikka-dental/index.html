@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.duo>*,.today>*,.wa-grid>*{min-width:0}.browser{max-width:100%}
 
 :root{
   --cream:#F1EEE6; --paper:#F7F5EF; --ink:#0D0D0F; --muted:#5E5D58; --line:#D9D5CA;
@@ -317,6 +319,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 :root{--m-bg:#F4F8FF;--m-surface:#FFFFFF;--m-ink:#10233F;--m-muted:#5E6B7D;--m-line:#DCE6F5;--m-acc:#0E6FE0;--m-acc2:#FE7431;--m-on-acc:#FFFFFF;--m-dark:#0B2E5E;--m-dark-rgb:11,46,94;--m-head:'Plus Jakarta Sans',system-ui,sans-serif;--m-hw:700;--m-hw2:700;--m-hls:-.025em;--m-em:normal;--m-body:'Plus Jakarta Sans',system-ui,sans-serif;--m-logo:'Plus Jakarta Sans',sans-serif;--m-logow:800;--m-logos:2.4cqi;--m-logols:.06em;--m-rad:1.4;--m-tile1:#EAF2FF;--m-tile2:#FFF1E9;--m-tile3:#EAF2FF;--m-tile4:#FFF1E9}
+
 </style>
 </head>
 <body>
@@ -417,7 +420,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
               </div></div>
             <div class="n-sec n-dark" style="--m-ncl:2">
               <div class="n-head"><h3>Inside the clinic, <em>Oud Metha</em></h3><span>Directions →</span></div>
-              <div class="n-clin"><figure><div class="ph" style="background-image:url(place2.jpg)"></div><b>Our treatment rooms</b><p>Office 303, Metha Plaza, Block B, Oud Metha · near Healthcare City, easy parking.</p><u>Book a visit →</u></figure><figure><div class="ph" style="background-image:url(hero.jpg)"></div><b>The team</b><p>Specialists in orthodontics, gums and implants, children and oral surgery.</p><u>Meet the team →</u></figure></div>
+              <div class="n-clin"><figure><div class="ph" style="background-image:url(place2.jpg);background-position:center"></div><b>Our treatment rooms</b><p>Office 303, Metha Plaza, Block B, Oud Metha · near Healthcare City, easy parking.</p><u>Book a visit →</u></figure><figure><div class="ph" style="background-image:url(hero.jpg);background-position:center"></div><b>The team</b><p>Specialists in orthodontics, gums and implants, children and oral surgery.</p><u>Meet the team →</u></figure></div>
             </div>
             <div class="n-sec">
               <div class="n-head"><h3>In our patients’ <em>words</em></h3><span>219 reviews on Google →</span></div>
@@ -571,8 +574,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     show(Object.keys(data)[0]);
   });
   var site=document.querySelector('.browser .site');
-  function fit(){if(!site)return;site.style.width='';site.style.zoom='';var w=site.parentElement.clientWidth;if(w<760){site.style.width='1000px';site.style.zoom=(w/1000).toFixed(4)}}
-  fit();window.addEventListener('resize',fit);
+  function fit(){if(!site)return;var box=site.parentElement;site.style.width='';site.style.transform='';site.style.marginBottom='';site.style.zoom='';var w=box.clientWidth;if(w<760){var s=w/1000;box.style.overflow='hidden';site.style.width='1000px';site.style.transformOrigin='0 0';site.style.transform='scale('+s.toFixed(4)+')';site.style.marginBottom=(-site.offsetHeight*(1-s))+'px'}}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
   function v(id){return +document.getElementById(id).value}
   function calc(){

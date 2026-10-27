@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.duo>*,.today>*,.wa-grid>*{min-width:0}.browser{max-width:100%}
 
 :root{
   --cream:#F1EEE6; --paper:#F7F5EF; --ink:#0D0D0F; --muted:#5E5D58; --line:#D9D5CA;
@@ -129,8 +131,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .v-split .n-copy{padding:3cqi 0 9cqi}
 .v-split .n-photo{height:40cqi;border-radius:calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*.4cqi);background-size:cover;background-position:center;position:relative}
 .v-split .n-photo::after{content:"";position:absolute;right:-1.6cqi;top:-1.6cqi;width:9cqi;height:9cqi;border-radius:50%;background:var(--m-acc2);opacity:.85;z-index:-1}
-.v-split .n-float{position:absolute;left:30cqi;top:33cqi;z-index:4;width:31cqi}
-.v-split .n-stats{width:100%;padding-top:13cqi}
+.v-split .n-float{position:absolute;left:46cqi;top:31cqi;z-index:4;width:30cqi}
+.v-split .n-stats{width:42cqi;grid-template-columns:repeat(2,1fr);row-gap:2.4cqi;padding-top:3cqi;padding-bottom:5cqi}
+.v-split .n-copy{padding-bottom:3cqi}
 .widget{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2cqi;box-shadow:0 2cqi 4cqi rgba(var(--m-dark-rgb),.18);color:var(--m-ink)}
 .w-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.4cqi}
 .w-title b{font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi)}
@@ -316,6 +319,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 :root{--m-bg:#F6F1E7;--m-surface:#FFFFFF;--m-ink:#16213A;--m-muted:#6B6F7B;--m-line:#E2D9C8;--m-acc:#9C7A2E;--m-acc2:#D9B871;--m-on-acc:#FFFFFF;--m-dark:#0F1D33;--m-dark-rgb:15,29,51;--m-head:'Cormorant Garamond',Georgia,serif;--m-hw:500;--m-hw2:600;--m-hls:-.005em;--m-em:italic;--m-body:'Manrope',system-ui,sans-serif;--m-logo:'Cormorant Garamond',Georgia,serif;--m-logow:600;--m-logos:2.7cqi;--m-logols:.16em;--m-rad:.5}
+
 </style>
 </head>
 <body>
@@ -415,7 +419,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
               </div></div>
             <div class="n-sec n-dark" style="--m-ncl:2">
               <div class="n-head"><h3>The clinic, <em>as it really is</em></h3><span>Directions →</span></div>
-              <div class="n-clin"><figure><div class="ph" style="background-image:url(hero.jpg)"></div><b>The reception</b><p>Fleur-de-lis desk, marble and tapestries, Al Razi Building 64.</p><u>Book a visit →</u></figure><figure><div class="ph" style="background-image:url(place2.jpg)"></div><b>Same-day CEREC</b><p>Your crown designed on screen and milled in-house, while you wait.</p><u>See how it works →</u></figure></div>
+              <div class="n-clin"><figure><div class="ph" style="background-image:url(hero.jpg);background-position:center"></div><b>The reception</b><p>Fleur-de-lis desk, marble and tapestries, Al Razi Building 64.</p><u>Book a visit →</u></figure><figure><div class="ph" style="background-image:url(place2.jpg);background-position:center"></div><b>Same-day CEREC</b><p>Your crown designed on screen and milled in-house, while you wait.</p><u>See how it works →</u></figure></div>
             </div>
             <div class="n-sec">
               <div class="n-head"><h3>In our patients’ <em>words</em></h3><span>352 reviews on Google →</span></div>
@@ -569,8 +573,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     show(Object.keys(data)[0]);
   });
   var site=document.querySelector('.browser .site');
-  function fit(){if(!site)return;site.style.width='';site.style.zoom='';var w=site.parentElement.clientWidth;if(w<760){site.style.width='1000px';site.style.zoom=(w/1000).toFixed(4)}}
-  fit();window.addEventListener('resize',fit);
+  function fit(){if(!site)return;var box=site.parentElement;site.style.width='';site.style.transform='';site.style.marginBottom='';site.style.zoom='';var w=box.clientWidth;if(w<760){var s=w/1000;box.style.overflow='hidden';site.style.width='1000px';site.style.transformOrigin='0 0';site.style.transform='scale('+s.toFixed(4)+')';site.style.marginBottom=(-site.offsetHeight*(1-s))+'px'}}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
   function v(id){return +document.getElementById(id).value}
   function calc(){

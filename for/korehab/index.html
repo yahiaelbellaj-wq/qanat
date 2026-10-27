@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=Noto+Serif+KR:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.duo>*,.today>*,.wa-grid>*{min-width:0}.browser{max-width:100%}
 
 :root{
   --cream:#F1EEE6; --paper:#F7F5EF; --ink:#0D0D0F; --muted:#5E5D58; --line:#D9D5CA;
@@ -572,8 +574,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     show(Object.keys(data)[0]);
   });
   var site=document.querySelector('.browser .site');
-  function fit(){if(!site)return;site.style.width='';site.style.zoom='';var w=site.parentElement.clientWidth;if(w<760){site.style.width='1000px';site.style.zoom=(w/1000).toFixed(4)}}
-  fit();window.addEventListener('resize',fit);
+  function fit(){if(!site)return;var box=site.parentElement;site.style.width='';site.style.transform='';site.style.marginBottom='';site.style.zoom='';var w=box.clientWidth;if(w<760){var s=w/1000;box.style.overflow='hidden';site.style.width='1000px';site.style.transformOrigin='0 0';site.style.transform='scale('+s.toFixed(4)+')';site.style.marginBottom=(-site.offsetHeight*(1-s))+'px'}}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
   function v(id){return +document.getElementById(id).value}
   function calc(){
