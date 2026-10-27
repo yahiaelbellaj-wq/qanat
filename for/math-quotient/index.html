@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Math Quotient × Qanat · A diagnostic</title>
+<meta name="description" content="Prepared for Math Quotient Training Institute: what a new client sees today, a draft homepage, booking on WhatsApp and a 90-day plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --cream:#F1EEE6; --paper:#F7F5EF; --ink:#0D0D0F; --muted:#5E5D58; --line:#D9D5CA;
+  --red:#F2361D; --blue:#1F3BFF; --yellow:#EFE52C;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hand:"Caveat","Bradley Hand",cursive;
+  /* NOA palette, taken from their site and their JLT reception */
+  --noa:#0075BB; --noa-sky:#78C6EE; --sand:#EFE9E1; --stone:#D8CFC2; --slate:#1C2733; --noa-ink:#22303D;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.cond{font-variation-settings:"wdth" 62,"wght" 900;text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
+.hand{font-family:var(--hand);font-weight:700;color:var(--red);font-size:1.45rem;line-height:1.1}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* bar */
+.bar{position:sticky;top:0;z-index:50;background:rgba(241,238,230,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ink)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand b{font-variation-settings:"wdth" 110,"wght" 900;font-size:1.2rem;letter-spacing:-.02em}
+.brand .mono{color:var(--muted)}
+.cta-s{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);padding:10px 16px;font-weight:600;font-size:.88rem;white-space:nowrap}
+.cta-s:hover{background:var(--red)}
+@media(max-width:640px){.brand .mono{display:none}}
+
+/* sections */
+.sec{border-bottom:1px solid var(--ink);padding:72px 0}
+.sec-h{display:grid;gap:14px;margin-bottom:40px;max-width:820px}
+.sec-h .mono{color:var(--red)}
+.sec-h h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+.sec-h p{font-size:1.08rem;color:#2b2a27;max-width:640px}
+
+/* hero */
+.hero{padding:64px 0 56px}
+.hero .wrap{display:grid;gap:40px}
+@media(min-width:980px){.hero .wrap{grid-template-columns:1.25fr .75fr;align-items:end}}
+.hero h1{font-size:clamp(3.4rem,9vw,8.2rem)}
+.hero h1 em{font-style:normal;color:var(--red)}
+.letter{display:grid;gap:14px;font-size:1.06rem;max-width:460px}
+.letter p:first-child{font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);margin-top:48px}
+@media(min-width:780px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{padding:18px 16px 4px 0;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-variation-settings:"wdth" 80,"wght" 800;font-size:2.1rem;line-height:1}
+.facts span{color:var(--muted)}
+
+/* frames */
+.browser{background:#fff;border:1px solid var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:hidden}
+.browser .chrome{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--ink);background:var(--paper)}
+.browser .dots{display:flex;gap:6px}.browser .dots i{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink)}
+.browser .url{flex:1;font-family:var(--mono);font-size:.7rem;background:#fff;border:1px solid var(--line);padding:4px 10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone{width:min(330px,100%);margin:0 auto;border:10px solid var(--ink);border-radius:40px;background:#fff;overflow:hidden;box-shadow:10px 10px 0 rgba(13,13,15,.18);position:relative}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:var(--ink);border-radius:20px;z-index:3}
+
+/* 01 today */
+.today{display:grid;gap:34px}
+@media(min-width:980px){.today{grid-template-columns:1.2fr .8fr;align-items:start}}
+.findings{list-style:none;padding:0;display:grid;border-top:1px solid var(--ink)}
+.findings li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.findings .n{font-family:var(--mono);font-size:.78rem;color:var(--red);padding-top:3px}
+.findings b{display:block;font-size:1.05rem;margin-bottom:4px}
+.findings p{color:#3a3935;font-size:.95rem}
+
+/* 02 direction */
+.dir{display:grid;gap:18px;margin-bottom:44px}
+@media(min-width:900px){.dir{grid-template-columns:1.3fr 1fr 1fr}}
+.dir>div{border-top:2px solid var(--ink);padding-top:12px}
+.dir .mono{color:var(--muted);display:block;margin-bottom:10px}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.sw i{display:block;aspect-ratio:1/1.15;border:1px solid rgba(13,13,15,.15)}
+.sw span{display:block;font-family:var(--mono);font-size:.6rem;margin-top:5px;line-height:1.3}
+.type .f1{font-family:var(--m-head);font-weight:var(--m-hw);font-size:2.4rem;line-height:1}
+.type .f1 em{color:var(--m-acc)}
+.type .f2{font-family:var(--m-body);font-size:.95rem;margin-top:8px;color:#3a3935}
+.princ{list-style:none;padding:0;display:grid;gap:8px;font-size:.95rem}
+
+/* 02 mockup : the prospect's site, themed with --m-* variables, scales with its container */
+.duo{display:grid;gap:44px;align-items:start}
+@media(min-width:1040px){.duo{grid-template-columns:1fr 330px}}
+.site{container-type:inline-size;font-family:var(--m-body);color:var(--m-ink);background:var(--m-bg);position:relative;overflow:hidden}
+.pin{position:absolute;z-index:6;width:max(18px,2.4cqi);height:max(18px,2.4cqi);border-radius:50%;background:var(--red);color:#fff!important;letter-spacing:0!important;text-transform:none!important;font-family:var(--mono);font-size:max(9px,1.1cqi);display:grid;place-items:center;font-weight:600;box-shadow:0 0 0 .5cqi rgba(242,54,29,.25)}
+.n-nav{display:flex;align-items:center;justify-content:space-between;padding:2.4cqi 4cqi;font-size:max(9px,1.1cqi);letter-spacing:.03em;position:relative;z-index:3}
+.n-logo{display:flex;flex-direction:column;line-height:1}
+.n-logo b{font-family:var(--m-logo);font-weight:var(--m-logow);font-size:max(14px,var(--m-logos));letter-spacing:var(--m-logols)}
+.n-logo small{font-size:max(6px,.75cqi);letter-spacing:.3em;margin-top:.4cqi;text-transform:uppercase}
+.n-links{display:flex;gap:2.6cqi;opacity:.9}
+.n-book{background:var(--m-acc);color:var(--m-on-acc);padding:1cqi 2.1cqi;border-radius:calc(var(--m-rad)*1cqi);font-weight:700}
+.n-eyebrow{font-size:max(7px,.95cqi);letter-spacing:.24em;text-transform:uppercase;color:var(--m-acc)}
+.n-h{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(22px,5.1cqi);line-height:1.03;letter-spacing:var(--m-hls);margin:1.4cqi 0 1.6cqi}
+.n-h em{font-style:var(--m-em);color:var(--m-acc2)}
+.n-p{font-size:max(9px,1.3cqi);line-height:1.55;max-width:38cqi;opacity:.9}
+.n-ctas{display:flex;gap:1cqi;margin-top:2.4cqi;flex-wrap:wrap}
+.n-btn{background:var(--m-acc);color:var(--m-on-acc);padding:1.1cqi 2.2cqi;border-radius:calc(var(--m-rad)*1cqi);font-weight:700;font-size:max(8px,1.1cqi)}
+.n-btn.ghost{background:transparent;border:1px solid currentColor;color:inherit}
+/* hero, overlay variant */
+.v-overlay .n-hero{position:relative;height:50cqi;background-size:cover;background-position:center 42%;color:#fff}
+.v-overlay .n-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--m-dark-rgb),.86) 0%,rgba(var(--m-dark-rgb),.55) 42%,rgba(var(--m-dark-rgb),.06) 74%),linear-gradient(0deg,rgba(var(--m-dark-rgb),.35),transparent 40%)}
+.v-overlay .n-nav{position:absolute;top:0;left:0;right:0;color:#fff}
+.v-overlay .n-book{background:#fff;color:var(--m-dark)}
+.v-overlay .n-copy{position:absolute;left:4cqi;bottom:5.5cqi;z-index:2;max-width:48cqi}
+.v-overlay .n-eyebrow{color:var(--m-acc2)}
+.v-overlay .n-btn{background:#fff;color:var(--m-dark)}
+.v-overlay .n-btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.v-overlay .n-float{position:absolute;right:4cqi;top:30cqi;z-index:4;width:31cqi}
+.v-overlay .n-stats{width:58cqi}
+/* hero, split variant */
+.v-split .n-hero{display:grid;grid-template-columns:1fr 1fr;gap:3cqi;padding:1cqi 4cqi 0;align-items:center;min-height:44cqi}
+.v-split .n-copy{padding:3cqi 0 9cqi}
+.v-split .n-photo{height:40cqi;border-radius:calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*.4cqi);background-size:cover;background-position:center;position:relative}
+.v-split .n-photo::after{content:"";position:absolute;right:-1.6cqi;top:-1.6cqi;width:9cqi;height:9cqi;border-radius:50%;background:var(--m-acc2);opacity:.85;z-index:-1}
+.v-split .n-float{position:absolute;left:46cqi;top:31cqi;z-index:4;width:30cqi}
+.v-split .n-stats{width:42cqi;grid-template-columns:repeat(2,1fr);row-gap:2.4cqi;padding-top:3cqi;padding-bottom:5cqi}
+.v-split .n-copy{padding-bottom:3cqi}
+.widget{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2cqi;box-shadow:0 2cqi 4cqi rgba(var(--m-dark-rgb),.18);color:var(--m-ink)}
+.w-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.4cqi}
+.w-title b{font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi)}
+.w-title span{font-size:max(7px,.9cqi);color:#2e9e5b;font-weight:700}
+.w-tabs{display:flex;gap:.6cqi;background:var(--m-bg);padding:.5cqi;border-radius:99px;width:fit-content;max-width:100%;flex-wrap:wrap}
+.w-tabs button{font-size:max(8px,1.05cqi);font-weight:600;padding:.8cqi 1.6cqi;border-radius:99px;color:var(--m-muted)}
+.w-tabs button[aria-selected=true]{background:var(--m-dark);color:#fff}
+.w-row{display:flex;flex-wrap:wrap;align-items:center;gap:.8cqi;margin-top:1.3cqi}
+.w-sel{width:100%;font-size:max(8px,1.05cqi);border:1px solid var(--m-line);border-radius:.9cqi;padding:.9cqi 1.2cqi;background:var(--m-surface);color:var(--m-ink)}
+.slot{font-size:max(8px,1.05cqi);border:1px solid var(--m-acc);color:var(--m-acc);border-radius:99px;padding:.7cqi 1.2cqi;font-weight:600}
+.slot.on{background:var(--m-acc);color:var(--m-on-acc)}
+.w-go{width:100%;margin-top:.4cqi;background:var(--m-dark);color:#fff;font-weight:700;font-size:max(8px,1.1cqi);padding:1.1cqi;border-radius:99px}
+.w-note{font-size:max(7px,.88cqi);color:var(--m-muted);margin-top:1.1cqi}
+.n-stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);padding:4.2cqi 4cqi 3.6cqi;gap:1cqi}
+.n-stats div{border-left:1px solid var(--m-line);padding-left:1.4cqi}
+.n-stats b{display:block;font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(15px,3.4cqi);line-height:1;color:var(--m-dark)}
+.n-stats span{font-size:max(7px,.88cqi);letter-spacing:.12em;text-transform:uppercase;color:var(--m-muted)}
+.n-sec{padding:4.4cqi 4cqi;position:relative}
+.n-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:2.6cqi;gap:2cqi}
+.n-head h3{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(16px,3.1cqi);letter-spacing:var(--m-hls);line-height:1.05}
+.n-head h3 em{font-style:var(--m-em);color:var(--m-acc)}
+.n-head span{font-size:max(8px,1.05cqi);font-weight:700;color:var(--m-acc);white-space:nowrap}
+.n-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqi}
+.n-card{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2.2cqi;display:flex;flex-direction:column;gap:.9cqi;min-height:19cqi;transition:transform .3s}
+.n-card:nth-child(4n+1){background:var(--m-tile1,var(--m-surface))}.n-card:nth-child(4n+2){background:var(--m-tile2,var(--m-surface))}.n-card:nth-child(4n+3){background:var(--m-tile3,var(--m-surface))}.n-card:nth-child(4n+4){background:var(--m-tile4,var(--m-surface))}
+.n-card:hover{transform:translateY(-.6cqi)}
+.n-card svg{width:max(20px,3.6cqi);height:max(20px,3.6cqi);stroke:var(--m-acc);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.n-card b{font-weight:600;font-size:max(10px,1.45cqi);margin-top:.6cqi}
+.n-card p{font-size:max(8px,1.02cqi);color:var(--m-muted);line-height:1.5}
+.n-card u{margin-top:auto;text-decoration:none;font-size:max(8px,1.02cqi);font-weight:700;color:var(--m-acc)}
+.n-doc{display:grid;grid-template-columns:30cqi 1fr;gap:4cqi;align-items:center;position:relative}
+.n-doc.noimg{grid-template-columns:1fr}
+.n-doc .wm{position:absolute;right:-2cqi;top:-6cqi;font-family:var(--m-head);font-weight:var(--m-hw);font-size:20cqi;line-height:1;color:var(--m-line);opacity:.6;pointer-events:none;letter-spacing:-.04em;white-space:nowrap}
+.n-doc img{width:100%;height:36cqi;object-fit:cover;object-position:top;border-radius:calc(var(--m-rad)*1.6cqi);position:relative}
+.n-doc .q{font-family:var(--m-head);font-style:var(--m-em);font-weight:var(--m-hw);font-size:max(13px,2.4cqi);line-height:1.25;position:relative}
+.n-doc .who{font-size:max(8px,1.05cqi);color:var(--m-muted);margin-top:2cqi;position:relative}
+.n-doc .who b{display:block;color:var(--m-ink);font-size:max(9px,1.3cqi)}
+.n-doc ul{list-style:none;padding:0;margin-top:2cqi;display:flex;flex-wrap:wrap;gap:.8cqi;position:relative}
+.n-doc li{font-size:max(7px,.95cqi);border:1px solid var(--m-line);border-radius:99px;padding:.6cqi 1.2cqi;background:var(--m-surface)}
+.n-dark{background:var(--m-dark);color:#fff}
+.n-dark .n-head h3 em,.n-dark .n-head span{color:var(--m-acc2)}
+.n-clin{display:grid;grid-template-columns:repeat(var(--m-ncl,2),1fr);gap:2cqi}
+.n-clin figure{margin:0}
+.n-clin .ph{height:20cqi;border-radius:calc(var(--m-rad)*1.4cqi);background-size:cover;background-position:center;background-color:rgba(255,255,255,.08)}
+.n-clin b{display:block;font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi);margin-top:1.6cqi}
+.n-clin p{font-size:max(8px,1.02cqi);opacity:.75;margin-top:.5cqi}
+.n-clin u{display:inline-block;margin-top:1.2cqi;text-decoration:none;font-size:max(8px,1.02cqi);font-weight:700;border-bottom:1px solid var(--m-acc2);color:var(--m-acc2)}
+.n-revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqi}
+.n-rev{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2.2cqi}
+.n-rev i{font-style:normal;color:#E7A93B;letter-spacing:.1em;font-size:max(9px,1.2cqi)}
+.n-rev p{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(10px,1.45cqi);line-height:1.35;margin:1cqi 0}
+.n-rev span{font-size:max(7px,.9cqi);color:var(--m-muted)}
+.n-foot{display:flex;justify-content:space-between;align-items:center;padding:3cqi 4cqi;border-top:1px solid var(--m-line);font-size:max(7px,.95cqi);color:var(--m-muted)}
+
+/* annotations */
+.notes{display:grid;gap:14px;margin-top:30px}
+@media(min-width:760px){.notes{grid-template-columns:repeat(3,1fr)}}
+.note{border-top:2px solid var(--ink);padding-top:12px}
+.note b{display:flex;gap:8px;align-items:center;margin-bottom:4px}
+.note b i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--mono);font-size:.7rem;display:grid;place-items:center;flex:none}
+.note p{color:#3a3935;font-size:.95rem}
+
+/* mobile mockup */
+.m-site{font-family:var(--m-body);color:var(--m-ink);background:var(--m-bg);height:640px;overflow:hidden;position:relative}
+.m-hero{height:330px;background-size:cover;background-position:30% center;position:relative;color:#fff;padding:44px 16px 0}
+.m-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--m-dark-rgb),.55),rgba(var(--m-dark-rgb),.12) 35%,rgba(var(--m-dark-rgb),.86))}
+.m-top,.m-copy{position:relative;z-index:1}
+.m-top{display:flex;justify-content:space-between;align-items:center}
+.m-top b{font-family:var(--m-logo);font-weight:var(--m-logow);letter-spacing:var(--m-logols);font-size:16px}
+.m-top span{font-size:20px}
+.m-copy{position:absolute;left:16px;right:16px;bottom:22px}
+.m-h{font-family:var(--m-head);font-weight:var(--m-hw);font-size:28px;line-height:1.04;letter-spacing:var(--m-hls)}
+.m-h em{font-style:var(--m-em);color:var(--m-acc2)}
+.m-p{font-size:12px;opacity:.88;margin-top:8px}
+.m-w{margin:-6px 12px 0;position:relative;z-index:2;border-radius:16px;padding:12px;box-shadow:0 10px 24px rgba(var(--m-dark-rgb),.16)}
+.m-w .w-title b{font-size:16px}.m-w .w-title span{font-size:10px}.m-w .w-title{margin-bottom:8px}
+.m-w .w-tabs button{font-size:11px;padding:6px 11px}
+.m-w .slot{font-size:11px;padding:6px 10px}
+.m-w .w-row{gap:6px;margin-top:10px}
+.m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px}
+.m-stats b{display:block;font-family:var(--m-head);font-weight:var(--m-hw);font-size:21px;line-height:1;color:var(--m-dark)}
+.m-stats span{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--m-muted)}
+.m-bar{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px 16px;background:linear-gradient(transparent,var(--m-bg) 30%)}
+.m-bar a{border-radius:99px;padding:11px;text-align:center;font-weight:700;font-size:12.5px}
+.m-bar .wa{background:#25D366;color:#fff}.m-bar .bk{background:var(--m-dark);color:#fff}
+/* 03 whatsapp */
+.wa-grid{display:grid;gap:40px;align-items:start}
+@media(min-width:980px){.wa-grid{grid-template-columns:340px 1fr}}
+.chat{background:#E9E2D6;height:720px;padding:46px 10px 12px;display:flex;flex-direction:column;gap:7px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12.6px;overflow:hidden}
+.chat .hd{position:absolute;top:0;left:0;right:0;background:#075E54;color:#fff;padding:36px 14px 10px;display:flex;align-items:center;gap:10px;font-size:13px;z-index:2}
+.chat .hd i{width:30px;height:30px;border-radius:50%;background:var(--slate);display:grid;place-items:center;font-style:normal;font-size:9px;letter-spacing:.12em}
+.chat .hd small{display:block;opacity:.8;font-size:10.5px}
+.chat .day{align-self:center;background:rgba(255,255,255,.8);font-size:10.5px;padding:3px 9px;border-radius:7px;color:#555;margin:4px 0}
+.b{max-width:84%;padding:7px 9px 5px;border-radius:9px;line-height:1.35;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.b.in{background:#fff;align-self:flex-start;border-top-left-radius:2px}
+.b.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:2px}
+.b .t{display:block;text-align:right;font-size:9.5px;color:#888;margin-top:2px}
+.b .opts{display:grid;gap:4px;margin-top:6px}
+.b .opts span{border-top:1px solid #eee;padding-top:5px;color:#0a7cc0;text-align:center;font-weight:600}
+.flows{display:grid;gap:0;border-top:1px solid var(--ink)}
+.flow{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media(max-width:560px){.flow{grid-template-columns:1fr;gap:6px}}
+.flow .when{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--red)}
+.flow b{display:block;font-size:1.08rem;margin-bottom:4px}
+.flow p{color:#3a3935;font-size:.96rem}
+.flow q{display:block;margin-top:8px;font-style:italic;color:var(--muted);quotes:none;font-size:.92rem;border-left:2px solid var(--line);padding-left:10px}
+
+/* 04 report */
+.report{display:grid;gap:36px;align-items:start}
+@media(min-width:980px){.report{grid-template-columns:1fr 1fr}}
+.mail{background:#fff;border:1px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:24px;font-size:.95rem}
+.mail .from{font-family:var(--mono);font-size:.7rem;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.mail h4{font-size:1.3rem;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.kpis div{background:var(--paper);padding:12px}
+.kpis b{display:block;font-variation-settings:"wdth" 80,"wght" 800;font-size:1.7rem;line-height:1}
+.kpis span{font-size:.8rem;color:var(--muted)}
+.bars{display:grid;gap:7px;margin:6px 0 14px}
+.bars div{display:grid;grid-template-columns:118px 1fr 34px;align-items:center;gap:8px;font-size:.82rem}
+.bars i{display:block;height:10px;background:var(--ink)}
+.sample{display:inline-block;font-family:var(--mono);font-size:.62rem;background:var(--yellow);padding:2px 6px;letter-spacing:.05em;text-transform:uppercase}
+
+/* 05 roadmap */
+.road{display:grid;border-top:1px solid var(--ink)}
+@media(min-width:900px){.road{grid-template-columns:repeat(3,1fr)}}
+.phase{padding:24px 22px 26px 0;border-bottom:1px solid var(--ink)}
+@media(min-width:900px){.phase{border-bottom:0;border-right:1px solid var(--ink);padding-left:22px}.phase:first-child{padding-left:0}.phase:last-child{border-right:0}}
+.phase .mono{color:var(--red)}
+.phase h3{font-size:clamp(1.9rem,3vw,2.5rem);margin:8px 0 14px}
+.phase ul{padding-left:18px;display:grid;gap:8px;color:#2b2a27}
+.phase .out{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:.92rem}
+.phase .out b{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+
+/* 06 calculator */
+.calc{display:grid;gap:30px;align-items:start}
+@media(min-width:980px){.calc{grid-template-columns:1fr 1fr}}
+.inputs{display:grid;gap:20px}
+.inp label{display:flex;justify-content:space-between;gap:10px;font-weight:600;margin-bottom:8px}
+.inp label output{font-family:var(--mono);font-weight:500}
+.inp input[type=range]{width:100%;accent-color:var(--ink)}
+.inp small{color:var(--muted);display:block;margin-top:4px}
+.result{background:var(--ink);color:var(--cream);padding:28px}
+.result .mono{color:var(--yellow)}
+.result b.big{display:block;font-variation-settings:"wdth" 70,"wght" 900;font-size:clamp(3.2rem,8vw,5.4rem);line-height:.95;margin:10px 0 6px}
+.result ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:8px;border-top:1px solid rgba(241,238,230,.25);padding-top:14px;font-size:.95rem}
+.result li{display:flex;justify-content:space-between;gap:10px}
+.result small{display:block;margin-top:16px;opacity:.7;font-size:.82rem}
+
+/* 07 offer */
+.offer{display:grid;gap:0;border:1px solid var(--ink)}
+@media(min-width:860px){.offer{grid-template-columns:1fr 1fr}}
+.offer div{padding:28px}
+.offer div+div{border-top:1px solid var(--ink)}
+@media(min-width:860px){.offer div+div{border-top:0;border-left:1px solid var(--ink)}}
+.offer .price{font-variation-settings:"wdth" 75,"wght" 900;font-size:2.8rem;line-height:1;margin:10px 0 14px}
+.offer ul{padding-left:18px;display:grid;gap:6px;color:#2b2a27}
+
+/* final cta */
+.final{background:var(--red);color:var(--ink);padding:80px 0}
+.final h2{font-size:clamp(3rem,8vw,6.6rem)}
+.final .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 22px;font-weight:700;border:1.5px solid var(--ink)}
+.btn.dark{background:var(--ink);color:var(--cream)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.foot{padding:28px 0 40px;color:var(--muted);font-size:.85rem}
+.foot .wrap{display:grid;gap:6px}
+
+/* booking drawer (Calendly) */
+.book{position:fixed;inset:0;z-index:90;display:none}
+.book.open{display:block}
+.book .bg{position:absolute;inset:0;background:rgba(13,13,15,.55)}
+.book .panel{position:absolute;right:0;top:0;bottom:0;width:min(560px,100%);background:var(--cream);border-left:1px solid var(--ink);display:flex;flex-direction:column}
+.book .ph{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--ink)}
+.book iframe{flex:1;border:0;width:100%}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+@media(max-width:700px){
+  .sec{padding:56px 0}
+  .browser{box-shadow:6px 6px 0 var(--ink)}
+}
+
+:root{--m-bg:#FBFAFF;--m-surface:#FFFFFF;--m-ink:#101828;--m-muted:#5D6475;--m-line:#E6E1F5;--m-acc:#6941C6;--m-acc2:#FB8E28;--m-on-acc:#FFFFFF;--m-dark:#1E1442;--m-dark-rgb:30,20,66;--m-head:'Outfit',system-ui,sans-serif;--m-hw:600;--m-hw2:600;--m-hls:-.02em;--m-em:normal;--m-body:'Inter',system-ui,sans-serif;--m-logo:'Outfit',sans-serif;--m-logow:700;--m-logos:2.3cqi;--m-logols:.08em;--m-rad:1.2;--m-tile1:#F4F1FB;--m-tile2:#FFF3E6;--m-tile3:#E7F6EF;--m-tile4:#EAF2FF}
+.v-overlay .n-hero{background-position:center 30%}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="https://qanatstudio.com"><b>QANAT</b><span class="mono">Prepared for Math Quotient Training Institute · Oct 2026</span></a>
+    <a class="cta-s" href="#talk" data-book>Book 30 min ↗</a>
+  </div>
+</header>
+
+<section class="sec hero">
+  <div class="wrap">
+    <div>
+      <p class="mono" style="color:var(--red);margin-bottom:18px">A diagnostic for Himanshu Jain</p>
+      <h1 class="cond">Math Quotient,<br>booked <em>in one tap.</em></h1>
+    </div>
+    <div class="letter">
+      <p>Himanshu, we spent a morning on mathquotient.org the way a parent would.</p>
+      <p>Below is what we found, what your homepage could look like, how the free BMI check would be booked and followed up on WhatsApp, and a 90-day plan. Everything uses your story, your test and your reviews.</p>
+      <p style="color:var(--muted)">Yahia El Bellaj, Founder of Qanat</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="facts"><div><b>2019</b><span class="mono">Founded in Dubai</span></div><div><b>10,000</b><span class="mono">Students taught</span></div><div><b>4.8★</b><span class="mono">275 Google reviews</span></div><div><b>IIT</b><span class="mono">Delhi founder</span></div></div></div>
+</section>
+
+<section class="sec" id="today">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">01 · What a new parent sees today</span>
+      <h2 class="cond">A unique test.<br>A form with no slot.</h2>
+      <p>Your homepage, as it loaded on 27 October. The BMI test is something no other centre in Dubai offers. The website makes a parent click twice, fill three screens, and still not get a time.</p>
+    </div>
+    <div class="today">
+      <div class="browser rv">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">mathquotient.org</span></div>
+        <img src="before.jpg" alt="Math Quotient homepage today" loading="lazy">
+      </div>
+      <ol class="findings rv"><li><span class="n">01</span><div><b>The first click opens reviews, not the form.</b><p>On the homepage today, the first click anywhere, including on “Book A FREE Session”, opens a Google-reviews pop-up. The booking form only appears on the second click.</p></div></li><li><span class="n">02</span><div><b>The free session has no time slot.</b><p>The form asks three screens of questions (grade, how the child feels about maths, last score, personality, contact, country) but never offers a date or a time. Step one reads “BLEOW 70%”.</p></div></li><li><span class="n">03</span><div><b>Your tutors are invisible.</b><p>The site holds a whole faculty, but the “Our Expert Faculties” and “Our Team” sections are switched off today. The only teacher a parent meets is you.</p></div></li><li><span class="n">04</span><div><b>Social proof frozen in 2024.</b><p>The reviews widget says “based on 233 reviews” and its newest review is from October 2024. The footer reads ©2023, and the hero badge says 4.9 while Google shows 4.8 from 275 reviews.</p></div></li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="new">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">02 · Your new homepage, first draft</span>
+      <h2 class="cond">Find the cause<br>of every mistake.</h2>
+      <p>Same violet, same orange, same Q. We studied the best tutoring sites and kept only what earns a parent’s trust: the founder, the method, real results and one button to book. Try the booking card: switch to Online.</p>
+    </div>
+    <div class="dir rv">
+      <div><span class="mono">Palette · taken from your site</span><div class="sw"><div><i style="background:#F4F1FB"></i><span>Lavender<br>#F4F1FB</span></div><div><i style="background:#6941C6"></i><span>MQ violet<br>#6941C6</span></div><div><i style="background:#101828"></i><span>Ink<br>#101828</span></div><div><i style="background:#FB8E28"></i><span>Star orange<br>#FB8E28</span></div><div><i style="background:#E7F6EF"></i><span>Mint<br>#E7F6EF</span></div></div></div>
+      <div class="type"><span class="mono">Type</span><p class="f1">Clear, <em>confident.</em></p><p class="f2">Outfit for headlines, Inter for reading: close to your General Sans, and fast on a phone. Your Q monogram and “Math is easy, Now!” stay.</p></div>
+      <div><span class="mono">Principles</span><ul class="princ"><li><b>The method first.</b> BMI, explained in one line.</li><li><b>Real teachers.</b> Your tutors, back on the site.</li><li><b>Live proof.</b> Google reviews, updated daily.</li></ul></div>
+    </div>
+    <div class="duo">
+      <div class="rv">
+        <div class="browser">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">mathquotient.org · draft by Qanat</span></div>
+          <div class="site v-overlay">
+            <div class="n-hero" style="background-image:url(hero.jpg)">
+              <nav class="n-nav">
+                <span class="n-logo"><b>MATH QUOTIENT</b><small>Math is easy, Now!</small></span>
+                <span class="n-links"><span>The BMI test</span><span>Programmes</span><span>Our tutors</span><span>Results</span><span>Reviews</span></span>
+                <span class="n-book">Free BMI check</span>
+              </nav>
+              <span class="pin" style="left:1.4cqi;top:10.6cqi">1</span>
+              <div class="n-copy">
+                <span class="n-eyebrow">Maths coaching · Bur Dubai &amp; online · since 2019</span>
+                <h3 class="n-h">Find the cause of<br><em>every maths mistake.</em></h3>
+                <p class="n-p">Every student starts with the free BMI check: 148 topics, the real level and the reason behind each lost mark. Then a plan led by an IIT Delhi mentor, at the centre or online.</p>
+                <div class="n-ctas"><span class="n-btn">Book the free check</span><span class="n-btn ghost">How BMI works</span></div>
+              </div>
+            </div>
+            <div class="n-float"><span class="pin" style="left:-1.2cqi;top:-1.2cqi">2</span><div class="widget" data-widget>
+                <div class="w-title"><b>Free BMI check</b><span>● Slots this week</span></div>
+                <div class="w-tabs" role="tablist"><button role="tab" aria-selected="true" data-k="c">At the centre</button><button role="tab" aria-selected="false" data-k="o">Online</button></div>
+                <div class="w-row"><select class="w-sel" aria-label="Grade or exam"><option>Grade 2 to 5</option><option>Grade 6 to 8</option><option>Grade 9 to 10 (IGCSE, CBSE)</option><option>Grade 11 to 12 (IB, A Level)</option><option>SAT maths</option><option>IIT-JEE</option><option>Maths Olympiad</option></select></div>
+                <div class="w-row" data-slots></div>
+                <p class="w-note" data-note></p>
+              </div></div>
+            <div class="n-stats"><span class="pin" style="left:1.4cqi;top:3.4cqi">3</span><div><b>10,000</b><span>Students taught</span></div><div><b>4.8★</b><span>275 reviews</span></div><div><b>148</b><span>Topics tested</span></div><div><b>IIT</b><span>Delhi founder</span></div></div>
+            <div class="n-sec" style="padding-top:2cqi">
+              <span class="pin" style="left:1.4cqi;top:3cqi">4</span>
+              <div class="n-head"><h3>Where every student <em>starts</em></h3><span>All programmes →</span></div>
+              <div class="n-cards"><div class="n-card"><svg viewBox="0 0 32 32"><path d="M9 9c0-2 3-3 7-3s7 1 7 3-1 4-2 7-1 9-3 9-2-6-2-6-0 6-2 6-2-6-3-9-2-5-2-7z"/><path d="M24 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg><b>Free BMI maths check</b><p>Finds your child’s real level and the reason behind each mistake.</p><u>Book the free check →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><path d="M6 7c4-2 7-1 10 1 3-2 6-3 10-1v18c-4-2-7-1-10 1-3-2-6-3-10-1z"/><path d="M16 8v18"/></svg><b>School maths</b><p>IB, IGCSE, GCSE, A Level, CBSE and American, Grade 2 to 12.</p><u>Find a tutor →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><path d="M5 27h22"/><rect x="8" y="16" width="4" height="9"/><rect x="14" y="11" width="4" height="14"/><rect x="20" y="6" width="4" height="19"/></svg><b>SAT maths</b><p>SAT maths preparation at the Bur Dubai centre and online.</p><u>See the next SAT dates →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><rect x="8" y="5" width="16" height="22" rx="2"/><path d="M11 9h10M12 15h.01M16 15h.01M20 15h.01M12 19h.01M16 19h.01M20 19h.01M12 23h.01M16 23h.01M20 23h.01"/></svg><b>IIT-JEE &amp; Olympiads</b><p>Competitive-exam preparation led by IIT mentors.</p><u>Book a consultation →</u></div></div>
+            </div>
+            <div class="n-sec"><span class="pin" style="left:1.4cqi;top:3cqi">5</span><div class="n-doc">
+                <span class="wm">MQ</span>
+                <img src="lead.jpg" alt="Himanshu Jain">
+                <div>
+                  <span class="n-eyebrow">The founder</span>
+                  <p class="q" style="margin-top:1.4cqi">“Children don’t make silly mistakes. They make a few kinds of mistakes, and each one has a cause. The BMI test finds it before we teach a single lesson.”</p>
+                  <p class="who"><b>Himanshu Jain</b>Founder · B.Tech, IIT Delhi · 12 years of teaching</p>
+                  <ul><li>Adjunct faculty, Amity University Dubai</li><li>Designer of the BMI test</li><li>Money-back guarantee</li></ul>
+                </div>
+              </div></div>
+            <div class="n-sec n-dark" style="--m-ncl:1">
+              <div class="n-head"><h3>In Bur Dubai, <em>and online</em></h3><span>Directions →</span></div>
+              <div class="n-clin"><figure><div class="ph" style="background-image:url(hero.jpg);background-position:center 35%"></div><b>Bur Dubai, by the Metro</b><p>Office M-02, Al Tawhidi Building 1. Two minutes from Sharaf DG Metro, Exit 1, a short trip from Karama and Mankhool.</p><u>Get directions →</u></figure></div>
+            </div>
+            <div class="n-sec">
+              <div class="n-head"><h3>What parents <em>say</em></h3><span>275 reviews on Google →</span></div>
+              <div class="n-revs"><div class="n-rev"><i>★★★★★</i><p>“One of the best institute, for making maths easy. Highly recommend Himanshu Jain sir.”</p><span>Amit N. · Google</span></div><div class="n-rev"><i>★★★★★</i><p>“VERY GOOD teacher. The lessons are always fun and enjoyable.”</p><span>Ozair A. · Google</span></div><div class="n-rev"><i>✓</i><p>Best Math Student among 400 at GEMS Founders School, A Level: one of the results on our site.</p></div></div>
+            </div>
+            <div class="n-foot"><span>Math Quotient Training Institute · Bur Dubai</span><span>Sun to Thu 8 am to 9 pm · Fri &amp; Sat 8:30 am to 9 pm</span></div>
+          </div>
+        </div>
+        <div class="notes"><div class="note"><b><i>1</i>You, and the view.</b><p>Your own photo over Bur Dubai replaces the stock headset kids. The first line says what only Math Quotient can say.</p></div><div class="note"><b><i>2</i>One tap to the free check.</b><p>Grade, centre or online, a real slot. No pop-up in the way, no three-screen form.</p></div><div class="note"><b><i>3</i>Proof in one glance.</b><p>10,000 students, 4.8 stars, 148 topics: where a parent decides.</p></div><div class="note"><b><i>4</i>Programmes that sell.</b><p>The free check, school maths, SAT and IIT-JEE, each with its own page and its own tracking.</p></div><div class="note"><b><i>5</i>Your method, in your words.</b><p>A short note on why mistakes have causes. The quote is a draft, to be written with you.</p></div><div class="note"><b><i>+</i>Live reviews, real tutors.</b><p>Google reviews update by themselves, and your faculty comes back with real roles.</p></div></div>
+      </div>
+      <div class="rv">
+        <div class="phone">
+          <div class="m-site">
+            <div class="m-hero" style="background-image:url(hero.jpg)">
+              <div class="m-top"><b>MATH QUOTIENT</b><span>≡</span></div>
+              <div class="m-copy"><h3 class="m-h">Every mistake <em>has a cause.</em></h3><p class="m-p">Bur Dubai &amp; online · free BMI check.</p></div>
+            </div>
+            <div class="m-w widget" data-widget>
+              <div class="w-title"><b>Free BMI check</b><span>● Slots this week</span></div>
+              <div class="w-tabs" role="tablist"><button role="tab" aria-selected="true" data-k="c">At the centre</button><button role="tab" aria-selected="false" data-k="o">Online</button></div>
+              <div class="w-row" data-slots></div>
+            </div>
+            <div class="m-stats"><div><b>10k</b><span>Students</span></div><div><b>4.8★</b><span>Google</span></div><div><b>IIT</b><span>Delhi</span></div></div>
+            <div class="m-bar"><a class="wa" href="#wa">WhatsApp us</a><a class="bk" href="#new">Free BMI check</a></div>
+          </div>
+        </div>
+        <p class="hand" style="text-align:center;margin-top:16px">Free check booked<br>between two homeworks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="wa">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">03 · The parent journey, on WhatsApp</span>
+      <h2 class="cond">Asked on Sunday night.<br>Checked on Thursday.</h2>
+      <p>One WhatsApp line, the one already on your site. It books the free BMI check in a minute, sends the report and the plan afterwards, and keeps parents posted. You and your team take over whenever a human is better.</p>
+    </div>
+    <div class="wa-grid">
+      <div class="phone rv">
+        <div class="chat">
+          <div class="hd"><i>MQ</i><div>Math Quotient<small>Typically replies instantly</small></div></div>
+          <span class="day">Sunday</span><div class="b out">Hi, my daughter is in Grade 9 IGCSE and keeps losing marks on silly mistakes. Can she do the free test?<span class="t">20:41</span></div><div class="b in">Hi Priya, yes: the free BMI check is made for exactly that. At the centre or online?<div class="opts"><span>At the centre</span><span>Online</span></div><span class="t">20:41</span></div><div class="b out">At the centre<span class="t">20:42</span></div><div class="b in">Here are this week’s slots:<div class="opts"><span>Tue 5:00 pm</span><span>Thu 6:30 pm</span><span>Sat 10:00</span></div><span class="t">20:42</span></div><div class="b out">Thu 6:30 pm<span class="t">20:42</span></div><div class="b in">Booked: free BMI check, Grade 9 IGCSE, Thursday 6:30 pm, Al Tawhidi Building 1, Bank Street (Sharaf DG Metro, Exit 1).<span class="t">20:43</span></div><span class="day">Friday</span><div class="b in">Hi Priya, Aisha’s BMI report is ready: three topics to strengthen, and most lost marks come from one type of mistake. Would you like Mr Himanshu to walk you through the plan?<div class="opts"><span>Call me</span><span>Send it here</span></div><span class="t">10:05</span></div>
+        </div>
+        <p class="mono" style="text-align:center;margin-top:12px;color:var(--muted)">Sample conversation</p>
+      </div>
+      <div class="flows rv"><div class="flow"><span class="when">Any time</span><div><b>Free check, booked in a minute</b><p>Grade, curriculum, centre or online, then a real slot. No three-screen form, no waiting for a call back.</p></div></div><div class="flow"><span class="when">D-1</span><div><b>Reminder and directions</b><p>Time, Metro exit and what to bring, with one reply to confirm or move.</p></div></div><div class="flow"><span class="when">After the check</span><div><b>BMI report on WhatsApp</b><p>The mistake types and the topics to fix, with the plan and the quote, while the parent is still thinking about it.</p><q>Your BMI test is the hook no other centre has. It deserves to be the centre of the journey.</q></div></div><div class="flow"><span class="when">Every month</span><div><b>Progress note to parents</b><p>Sessions, scores and the next goal for each child. Pack renewal suggested before the last session.</p></div></div><div class="flow"><span class="when">Before each exam</span><div><b>Countdown nudges</b><p>SAT, IGCSE and Olympiad dates, with extra practice slots offered in the last weeks.</p></div></div><div class="flow"><span class="when">After a better grade</span><div><b>Review request</b><p>Asked when parents are happiest, so your Google reviews keep growing.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="report">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">04 · One number every Monday</span>
+      <h2 class="cond">Know which channel<br>fills which class.</h2>
+      <p>Today it’s hard to tell which post, page or channel brought a new student. Every Monday at 8 am you get one short email: free checks booked, students enrolled, by programme and by source.</p>
+    </div>
+    <div class="report">
+      <div class="mail rv">
+        <p class="from">From: Qanat · To: Himanshu Jain · Mon 08:00</p>
+        <h4>Math Quotient · week 47 <span class="sample">Sample</span></h4>
+        <div class="kpis"><div><b>38</b><span>Free checks booked</span></div><div><b>21</b><span>Checks done</span></div><div><b>9</b><span>New students</span></div><div><b>+6</b><span>New Google reviews</span></div></div>
+        <p class="mono" style="color:var(--muted)">Enquiries by programme</p>
+        <div class="bars"><div><span>School maths</span><i style="width:100%"></i><span>16</span></div><div><span>SAT</span><i style="width:50%"></i><span>8</span></div><div><span>IGCSE &amp; IB exams</span><i style="width:44%"></i><span>7</span></div><div><span>IIT-JEE</span><i style="width:25%"></i><span>4</span></div><div><span>Olympiad</span><i style="width:19%"></i><span>3</span></div></div>
+        <p style="font-size:.9rem;color:#3a3935">Instagram reels brought 12 free checks and 4 enrolments. SAT on 5 December: suggestion, a last-weeks SAT pack campaign.</p>
+      </div>
+      <div class="rv" style="display:grid;gap:18px;font-size:1.02rem">
+        <p><b>These figures are illustrative.</b> They show the format, not a promise. Your real report starts in week 3, once booking and tracking are live.</p>
+        <p>Every enquiry is tagged with its source (Google, Instagram, WhatsApp, a school referral), so you can decide where to spend with facts, programme by programme.</p>
+        <p class="hand">No dashboard to log into.<br>Just one email you read with your coffee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plan">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="mono">05 · The first 90 days</span><h2 class="cond">Three months,<br>three milestones.</h2></div>
+    <div class="road rv"><div class="phase"><span class="mono">Days 1 to 30</span><h3 class="cond">Open the door</h3><ul><li>New homepage built around you, the BMI test and real results</li><li>Free check booked online and on WhatsApp, centre or online</li><li>Your tutors back on the site</li><li>Google reviews live on the homepage</li></ul><p class="out"><b>You’ll see</b>Parents booking the free check, day and night.</p></div><div class="phase"><span class="mono">Days 31 to 60</span><h3 class="cond">Turn checks into students</h3><ul><li>BMI report and plan sent on WhatsApp</li><li>Follow-up at day 2 and day 7 after each check</li><li>Exam countdowns for SAT, IGCSE and IB</li><li>Monday report, live</li></ul><p class="out"><b>You’ll see</b>More free checks become enrolled students.</p></div><div class="phase"><span class="mono">Days 61 to 90</span><h3 class="cond">Grow what pays</h3><ul><li>Campaigns per exam and per curriculum, each with its own page</li><li>Pack renewals and monthly progress notes to parents</li><li>Review request after every better grade</li><li>Monthly review with you: keep, cut, scale</li></ul><p class="out"><b>You’ll see</b>What one new student really costs you.</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="worth">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">06 · What it could be worth</span>
+      <h2 class="cond">Your numbers,<br>not ours.</h2>
+      <p>We don’t know your numbers, so we won’t pretend. Move the sliders to your own figures and see what booking the free check instantly and following up the report would add each month.</p>
+    </div>
+    <div class="calc rv">
+      <div class="inputs"><div class="inp"><label>Free-check requests per month <output id="o-appt"></output></label><input id="appt" type="range" min="10" max="200" step="5" value="40"></div><div class="inp"><label>Value of a new student’s first pack (AED) <output id="o-val"></output></label><input id="val" type="range" min="1000" max="20000" step="500" value="3000"></div><div class="inp"><label>Share of enquiries that become clients today <output id="o-ns"></output></label><input id="ns" type="range" min="5" max="60" step="1" value="30"></div><div class="inp"><label>Extra conversion from instant answers and booked calls <output id="o-ex"></output></label><input id="ex" type="range" min="0" max="20" step="1" value="5"><small>Points of conversion gained by answering in minutes instead of hours, and booking the call straight away.</small></div></div>
+      <div class="result">
+        <span class="mono">Estimated extra revenue per month</span>
+        <b class="big" id="r-total">AED 0</b>
+        <span>with your assumptions, before any advertising</span>
+        <ul>
+          <li><span>Students enrolled today</span><span id="r-a">0</span></li>
+          <li><span>Extra students</span><span id="r-b">0</span></li>
+          <li><span>Over 12 months</span><span id="r-year">AED 0</span></li>
+        </ul>
+        <small>An estimate to start the conversation, not a promise. We measure the real figures from week 3.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="talk">
+  <div class="wrap">
+    <p class="mono">Next step</p>
+    <h2 class="cond">30 minutes.<br>Your timetable, your screen.</h2>
+    <p style="max-width:560px;margin-top:18px;font-size:1.1rem">We’ll walk through this draft together, adjust it to how Math Quotient really works, and you decide if it’s worth doing. No slides.</p>
+    <div class="row">
+      <a class="btn dark" href="https://calendly.com/hello-qanatstudio/30min" data-book>Book 30 minutes ↗</a>
+      <a class="btn" href="https://wa.me/971551397867?text=Hi%20Yahia,%20I%20saw%20the%20Math%20Quotient%20diagnostic">WhatsApp Yahia</a>
+      <a class="btn" href="mailto:hello@qanatstudio.com?subject=Math%20Quotient%20diagnostic">hello@qanatstudio.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Prepared by Qanat for Math Quotient Training Institute only, October 2026. This page is not listed or indexed.</p>
+    <p>The draft homepage uses Math Quotient’s own name, photos and public information for illustration. Review excerpts as shown on mathquotient.org on 27 October 2026; Google rating as listed on Google. Quotes attributed to Himanshu Jain are drafts. Sample figures are marked as such.</p>
+  </div>
+</footer>
+
+<div class="book" aria-hidden="true">
+  <div class="bg" data-close></div>
+  <div class="panel">
+    <div class="ph"><span class="mono">Book 30 minutes with Yahia</span><button data-close aria-label="Close">✕</button></div>
+    <iframe title="Calendly" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+(function(){
+  var data={"c": {"slots": ["Today 5:00 pm", "Thu 6:30 pm", "Sat 10:00"], "note": "Al Tawhidi Building 1, Bank Street \u00b7 Sharaf DG Metro, Exit 1"}, "o": {"slots": ["Today 7:00 pm", "Wed 8:00 pm", "Fri 11:00"], "note": "Live online with a mentor \u00b7 report sent on WhatsApp"}};
+  var bookLabel="Book free check";
+  document.querySelectorAll('[data-widget]').forEach(function(w){
+    var slots=w.querySelector('[data-slots]'),note=w.querySelector('[data-note]');
+    function show(k){
+      slots.innerHTML='';
+      data[k].slots.forEach(function(s,i){var b=document.createElement('button');b.className='slot'+(i===0?' on':'');b.textContent=s;b.onclick=function(){slots.querySelectorAll('.slot').forEach(function(x){x.classList.remove('on')});b.classList.add('on')};slots.appendChild(b)});
+      if(!w.classList.contains('m-w')){var go=document.createElement('button');go.className='w-go';go.textContent=bookLabel;slots.appendChild(go)}
+      if(note)note.textContent=data[k].note;
+      w.querySelectorAll('[data-k]').forEach(function(t){t.setAttribute('aria-selected',t.dataset.k===k)});
+    }
+    w.querySelectorAll('[data-k]').forEach(function(t){t.onclick=function(){show(t.dataset.k)}});
+    show(Object.keys(data)[0]);
+  });
+  var site=document.querySelector('.browser .site');
+  function fit(){if(!site)return;site.style.width='';site.style.zoom='';var w=site.parentElement.clientWidth;if(w<760){site.style.width='1000px';site.style.zoom=(w/1000).toFixed(4)}}
+  fit();window.addEventListener('resize',fit);
+  function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
+  function v(id){return +document.getElementById(id).value}
+  function calc(){
+    var a=v('appt'),val=v('val'),cv=v('ns')/100,ex=v('ex');
+    document.getElementById('o-appt').textContent=a;
+    document.getElementById('o-val').textContent=fmt(val);
+    document.getElementById('o-ns').textContent=Math.round(cv*100)+'%';
+    document.getElementById('o-ex').textContent='+'+ex+' pts';
+    var base=a*cv, extra=a*ex/100, total=extra*val;
+    document.getElementById('r-a').textContent=Math.round(base)+' students';
+    document.getElementById('r-b').textContent='+'+Math.round(extra)+' students';
+    document.getElementById('r-total').textContent=fmt(total);
+    document.getElementById('r-year').textContent=fmt(total*12);
+  }
+  document.querySelectorAll('.inputs input').forEach(function(i){i.addEventListener('input',calc)});
+  calc();
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  var book=document.querySelector('.book'),fr=book.querySelector('iframe');
+  var cal='https://calendly.com/hello-qanatstudio/30min?hide_gdpr_banner=1&background_color=f1eee6&text_color=0d0d0f&primary_color=f2361d';
+  document.querySelectorAll('[data-book]').forEach(function(a){a.addEventListener('click',function(x){x.preventDefault();if(!fr.src)fr.src=cal;book.classList.add('open');book.setAttribute('aria-hidden','false')})});
+  book.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){book.classList.remove('open');book.setAttribute('aria-hidden','true')})});
+  document.addEventListener('keydown',function(x){if(x.key==='Escape')book.classList.remove('open')});
+})();
+</script>
+</body>
+</html>
