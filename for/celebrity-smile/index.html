@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>CELEBRITY Smile × Qanat · A diagnostic</title>
+<meta name="description" content="Prepared for CELEBRITY Smile Medical Center: what a new client sees today, a draft homepage, booking on WhatsApp and a 90-day plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --cream:#F1EEE6; --paper:#F7F5EF; --ink:#0D0D0F; --muted:#5E5D58; --line:#D9D5CA;
+  --red:#F2361D; --blue:#1F3BFF; --yellow:#EFE52C;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hand:"Caveat","Bradley Hand",cursive;
+  /* NOA palette, taken from their site and their JLT reception */
+  --noa:#0075BB; --noa-sky:#78C6EE; --sand:#EFE9E1; --stone:#D8CFC2; --slate:#1C2733; --noa-ink:#22303D;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.cond{font-variation-settings:"wdth" 62,"wght" 900;text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
+.hand{font-family:var(--hand);font-weight:700;color:var(--red);font-size:1.45rem;line-height:1.1}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* bar */
+.bar{position:sticky;top:0;z-index:50;background:rgba(241,238,230,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ink)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand b{font-variation-settings:"wdth" 110,"wght" 900;font-size:1.2rem;letter-spacing:-.02em}
+.brand .mono{color:var(--muted)}
+.cta-s{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);padding:10px 16px;font-weight:600;font-size:.88rem;white-space:nowrap}
+.cta-s:hover{background:var(--red)}
+@media(max-width:640px){.brand .mono{display:none}}
+
+/* sections */
+.sec{border-bottom:1px solid var(--ink);padding:72px 0}
+.sec-h{display:grid;gap:14px;margin-bottom:40px;max-width:820px}
+.sec-h .mono{color:var(--red)}
+.sec-h h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+.sec-h p{font-size:1.08rem;color:#2b2a27;max-width:640px}
+
+/* hero */
+.hero{padding:64px 0 56px}
+.hero .wrap{display:grid;gap:40px}
+@media(min-width:980px){.hero .wrap{grid-template-columns:1.25fr .75fr;align-items:end}}
+.hero h1{font-size:clamp(3.4rem,9vw,8.2rem)}
+.hero h1 em{font-style:normal;color:var(--red)}
+.letter{display:grid;gap:14px;font-size:1.06rem;max-width:460px}
+.letter p:first-child{font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);margin-top:48px}
+@media(min-width:780px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{padding:18px 16px 4px 0;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-variation-settings:"wdth" 80,"wght" 800;font-size:2.1rem;line-height:1}
+.facts span{color:var(--muted)}
+
+/* frames */
+.browser{background:#fff;border:1px solid var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:hidden}
+.browser .chrome{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--ink);background:var(--paper)}
+.browser .dots{display:flex;gap:6px}.browser .dots i{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink)}
+.browser .url{flex:1;font-family:var(--mono);font-size:.7rem;background:#fff;border:1px solid var(--line);padding:4px 10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone{width:min(330px,100%);margin:0 auto;border:10px solid var(--ink);border-radius:40px;background:#fff;overflow:hidden;box-shadow:10px 10px 0 rgba(13,13,15,.18);position:relative}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:var(--ink);border-radius:20px;z-index:3}
+
+/* 01 today */
+.today{display:grid;gap:34px}
+@media(min-width:980px){.today{grid-template-columns:1.2fr .8fr;align-items:start}}
+.findings{list-style:none;padding:0;display:grid;border-top:1px solid var(--ink)}
+.findings li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.findings .n{font-family:var(--mono);font-size:.78rem;color:var(--red);padding-top:3px}
+.findings b{display:block;font-size:1.05rem;margin-bottom:4px}
+.findings p{color:#3a3935;font-size:.95rem}
+
+/* 02 direction */
+.dir{display:grid;gap:18px;margin-bottom:44px}
+@media(min-width:900px){.dir{grid-template-columns:1.3fr 1fr 1fr}}
+.dir>div{border-top:2px solid var(--ink);padding-top:12px}
+.dir .mono{color:var(--muted);display:block;margin-bottom:10px}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.sw i{display:block;aspect-ratio:1/1.15;border:1px solid rgba(13,13,15,.15)}
+.sw span{display:block;font-family:var(--mono);font-size:.6rem;margin-top:5px;line-height:1.3}
+.type .f1{font-family:var(--m-head);font-weight:var(--m-hw);font-size:2.4rem;line-height:1}
+.type .f1 em{color:var(--m-acc)}
+.type .f2{font-family:var(--m-body);font-size:.95rem;margin-top:8px;color:#3a3935}
+.princ{list-style:none;padding:0;display:grid;gap:8px;font-size:.95rem}
+
+/* 02 mockup : the prospect's site, themed with --m-* variables, scales with its container */
+.duo{display:grid;gap:44px;align-items:start}
+@media(min-width:1040px){.duo{grid-template-columns:1fr 330px}}
+.site{container-type:inline-size;font-family:var(--m-body);color:var(--m-ink);background:var(--m-bg);position:relative;overflow:hidden}
+.pin{position:absolute;z-index:6;width:max(18px,2.4cqi);height:max(18px,2.4cqi);border-radius:50%;background:var(--red);color:#fff!important;letter-spacing:0!important;text-transform:none!important;font-family:var(--mono);font-size:max(9px,1.1cqi);display:grid;place-items:center;font-weight:600;box-shadow:0 0 0 .5cqi rgba(242,54,29,.25)}
+.n-nav{display:flex;align-items:center;justify-content:space-between;padding:2.4cqi 4cqi;font-size:max(9px,1.1cqi);letter-spacing:.03em;position:relative;z-index:3}
+.n-logo{display:flex;flex-direction:column;line-height:1}
+.n-logo b{font-family:var(--m-logo);font-weight:var(--m-logow);font-size:max(14px,var(--m-logos));letter-spacing:var(--m-logols)}
+.n-logo small{font-size:max(6px,.75cqi);letter-spacing:.3em;margin-top:.4cqi;text-transform:uppercase}
+.n-links{display:flex;gap:2.6cqi;opacity:.9}
+.n-book{background:var(--m-acc);color:var(--m-on-acc);padding:1cqi 2.1cqi;border-radius:calc(var(--m-rad)*1cqi);font-weight:700}
+.n-eyebrow{font-size:max(7px,.95cqi);letter-spacing:.24em;text-transform:uppercase;color:var(--m-acc)}
+.n-h{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(22px,5.1cqi);line-height:1.03;letter-spacing:var(--m-hls);margin:1.4cqi 0 1.6cqi}
+.n-h em{font-style:var(--m-em);color:var(--m-acc2)}
+.n-p{font-size:max(9px,1.3cqi);line-height:1.55;max-width:38cqi;opacity:.9}
+.n-ctas{display:flex;gap:1cqi;margin-top:2.4cqi;flex-wrap:wrap}
+.n-btn{background:var(--m-acc);color:var(--m-on-acc);padding:1.1cqi 2.2cqi;border-radius:calc(var(--m-rad)*1cqi);font-weight:700;font-size:max(8px,1.1cqi)}
+.n-btn.ghost{background:transparent;border:1px solid currentColor;color:inherit}
+/* hero, overlay variant */
+.v-overlay .n-hero{position:relative;height:50cqi;background-size:cover;background-position:center 42%;color:#fff}
+.v-overlay .n-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--m-dark-rgb),.86) 0%,rgba(var(--m-dark-rgb),.55) 42%,rgba(var(--m-dark-rgb),.06) 74%),linear-gradient(0deg,rgba(var(--m-dark-rgb),.35),transparent 40%)}
+.v-overlay .n-nav{position:absolute;top:0;left:0;right:0;color:#fff}
+.v-overlay .n-book{background:#fff;color:var(--m-dark)}
+.v-overlay .n-copy{position:absolute;left:4cqi;bottom:5.5cqi;z-index:2;max-width:48cqi}
+.v-overlay .n-eyebrow{color:var(--m-acc2)}
+.v-overlay .n-btn{background:#fff;color:var(--m-dark)}
+.v-overlay .n-btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.v-overlay .n-float{position:absolute;right:4cqi;top:30cqi;z-index:4;width:31cqi}
+.v-overlay .n-stats{width:58cqi}
+/* hero, split variant */
+.v-split .n-hero{display:grid;grid-template-columns:1fr 1fr;gap:3cqi;padding:1cqi 4cqi 0;align-items:center;min-height:44cqi}
+.v-split .n-copy{padding:3cqi 0 9cqi}
+.v-split .n-photo{height:40cqi;border-radius:calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*.4cqi);background-size:cover;background-position:center;position:relative}
+.v-split .n-photo::after{content:"";position:absolute;right:-1.6cqi;top:-1.6cqi;width:9cqi;height:9cqi;border-radius:50%;background:var(--m-acc2);opacity:.85;z-index:-1}
+.v-split .n-float{position:absolute;left:46cqi;top:31cqi;z-index:4;width:30cqi}
+.v-split .n-stats{width:42cqi;grid-template-columns:repeat(2,1fr);row-gap:2.4cqi;padding-top:3cqi;padding-bottom:5cqi}
+.v-split .n-copy{padding-bottom:3cqi}
+.widget{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2cqi;box-shadow:0 2cqi 4cqi rgba(var(--m-dark-rgb),.18);color:var(--m-ink)}
+.w-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.4cqi}
+.w-title b{font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi)}
+.w-title span{font-size:max(7px,.9cqi);color:#2e9e5b;font-weight:700}
+.w-tabs{display:flex;gap:.6cqi;background:var(--m-bg);padding:.5cqi;border-radius:99px;width:fit-content;max-width:100%;flex-wrap:wrap}
+.w-tabs button{font-size:max(8px,1.05cqi);font-weight:600;padding:.8cqi 1.6cqi;border-radius:99px;color:var(--m-muted)}
+.w-tabs button[aria-selected=true]{background:var(--m-dark);color:#fff}
+.w-row{display:flex;flex-wrap:wrap;align-items:center;gap:.8cqi;margin-top:1.3cqi}
+.w-sel{width:100%;font-size:max(8px,1.05cqi);border:1px solid var(--m-line);border-radius:.9cqi;padding:.9cqi 1.2cqi;background:var(--m-surface);color:var(--m-ink)}
+.slot{font-size:max(8px,1.05cqi);border:1px solid var(--m-acc);color:var(--m-acc);border-radius:99px;padding:.7cqi 1.2cqi;font-weight:600}
+.slot.on{background:var(--m-acc);color:var(--m-on-acc)}
+.w-go{width:100%;margin-top:.4cqi;background:var(--m-dark);color:#fff;font-weight:700;font-size:max(8px,1.1cqi);padding:1.1cqi;border-radius:99px}
+.w-note{font-size:max(7px,.88cqi);color:var(--m-muted);margin-top:1.1cqi}
+.n-stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);padding:4.2cqi 4cqi 3.6cqi;gap:1cqi}
+.n-stats div{border-left:1px solid var(--m-line);padding-left:1.4cqi}
+.n-stats b{display:block;font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(15px,3.4cqi);line-height:1;color:var(--m-dark)}
+.n-stats span{font-size:max(7px,.88cqi);letter-spacing:.12em;text-transform:uppercase;color:var(--m-muted)}
+.n-sec{padding:4.4cqi 4cqi;position:relative}
+.n-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:2.6cqi;gap:2cqi}
+.n-head h3{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(16px,3.1cqi);letter-spacing:var(--m-hls);line-height:1.05}
+.n-head h3 em{font-style:var(--m-em);color:var(--m-acc)}
+.n-head span{font-size:max(8px,1.05cqi);font-weight:700;color:var(--m-acc);white-space:nowrap}
+.n-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqi}
+.n-card{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2.2cqi;display:flex;flex-direction:column;gap:.9cqi;min-height:19cqi;transition:transform .3s}
+.n-card:nth-child(4n+1){background:var(--m-tile1,var(--m-surface))}.n-card:nth-child(4n+2){background:var(--m-tile2,var(--m-surface))}.n-card:nth-child(4n+3){background:var(--m-tile3,var(--m-surface))}.n-card:nth-child(4n+4){background:var(--m-tile4,var(--m-surface))}
+.n-card:hover{transform:translateY(-.6cqi)}
+.n-card svg{width:max(20px,3.6cqi);height:max(20px,3.6cqi);stroke:var(--m-acc);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.n-card b{font-weight:600;font-size:max(10px,1.45cqi);margin-top:.6cqi}
+.n-card p{font-size:max(8px,1.02cqi);color:var(--m-muted);line-height:1.5}
+.n-card u{margin-top:auto;text-decoration:none;font-size:max(8px,1.02cqi);font-weight:700;color:var(--m-acc)}
+.n-doc{display:grid;grid-template-columns:30cqi 1fr;gap:4cqi;align-items:center;position:relative}
+.n-doc.noimg{grid-template-columns:1fr}
+.n-doc .wm{position:absolute;right:-2cqi;top:-6cqi;font-family:var(--m-head);font-weight:var(--m-hw);font-size:20cqi;line-height:1;color:var(--m-line);opacity:.6;pointer-events:none;letter-spacing:-.04em;white-space:nowrap}
+.n-doc img{width:100%;height:36cqi;object-fit:cover;object-position:top;border-radius:calc(var(--m-rad)*1.6cqi);position:relative}
+.n-doc .q{font-family:var(--m-head);font-style:var(--m-em);font-weight:var(--m-hw);font-size:max(13px,2.4cqi);line-height:1.25;position:relative}
+.n-doc .who{font-size:max(8px,1.05cqi);color:var(--m-muted);margin-top:2cqi;position:relative}
+.n-doc .who b{display:block;color:var(--m-ink);font-size:max(9px,1.3cqi)}
+.n-doc ul{list-style:none;padding:0;margin-top:2cqi;display:flex;flex-wrap:wrap;gap:.8cqi;position:relative}
+.n-doc li{font-size:max(7px,.95cqi);border:1px solid var(--m-line);border-radius:99px;padding:.6cqi 1.2cqi;background:var(--m-surface)}
+.n-dark{background:var(--m-dark);color:#fff}
+.n-dark .n-head h3 em,.n-dark .n-head span{color:var(--m-acc2)}
+.n-clin{display:grid;grid-template-columns:repeat(var(--m-ncl,2),1fr);gap:2cqi}
+.n-clin figure{margin:0}
+.n-clin .ph{height:20cqi;border-radius:calc(var(--m-rad)*1.4cqi);background-size:cover;background-position:center;background-color:rgba(255,255,255,.08)}
+.n-clin b{display:block;font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi);margin-top:1.6cqi}
+.n-clin p{font-size:max(8px,1.02cqi);opacity:.75;margin-top:.5cqi}
+.n-clin u{display:inline-block;margin-top:1.2cqi;text-decoration:none;font-size:max(8px,1.02cqi);font-weight:700;border-bottom:1px solid var(--m-acc2);color:var(--m-acc2)}
+.n-revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqi}
+.n-rev{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2.2cqi}
+.n-rev i{font-style:normal;color:#E7A93B;letter-spacing:.1em;font-size:max(9px,1.2cqi)}
+.n-rev p{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(10px,1.45cqi);line-height:1.35;margin:1cqi 0}
+.n-rev span{font-size:max(7px,.9cqi);color:var(--m-muted)}
+.n-foot{display:flex;justify-content:space-between;align-items:center;padding:3cqi 4cqi;border-top:1px solid var(--m-line);font-size:max(7px,.95cqi);color:var(--m-muted)}
+
+/* annotations */
+.notes{display:grid;gap:14px;margin-top:30px}
+@media(min-width:760px){.notes{grid-template-columns:repeat(3,1fr)}}
+.note{border-top:2px solid var(--ink);padding-top:12px}
+.note b{display:flex;gap:8px;align-items:center;margin-bottom:4px}
+.note b i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--mono);font-size:.7rem;display:grid;place-items:center;flex:none}
+.note p{color:#3a3935;font-size:.95rem}
+
+/* mobile mockup */
+.m-site{font-family:var(--m-body);color:var(--m-ink);background:var(--m-bg);height:640px;overflow:hidden;position:relative}
+.m-hero{height:330px;background-size:cover;background-position:30% center;position:relative;color:#fff;padding:44px 16px 0}
+.m-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--m-dark-rgb),.55),rgba(var(--m-dark-rgb),.12) 35%,rgba(var(--m-dark-rgb),.86))}
+.m-top,.m-copy{position:relative;z-index:1}
+.m-top{display:flex;justify-content:space-between;align-items:center}
+.m-top b{font-family:var(--m-logo);font-weight:var(--m-logow);letter-spacing:var(--m-logols);font-size:16px}
+.m-top span{font-size:20px}
+.m-copy{position:absolute;left:16px;right:16px;bottom:22px}
+.m-h{font-family:var(--m-head);font-weight:var(--m-hw);font-size:28px;line-height:1.04;letter-spacing:var(--m-hls)}
+.m-h em{font-style:var(--m-em);color:var(--m-acc2)}
+.m-p{font-size:12px;opacity:.88;margin-top:8px}
+.m-w{margin:-6px 12px 0;position:relative;z-index:2;border-radius:16px;padding:12px;box-shadow:0 10px 24px rgba(var(--m-dark-rgb),.16)}
+.m-w .w-title b{font-size:16px}.m-w .w-title span{font-size:10px}.m-w .w-title{margin-bottom:8px}
+.m-w .w-tabs button{font-size:11px;padding:6px 11px}
+.m-w .slot{font-size:11px;padding:6px 10px}
+.m-w .w-row{gap:6px;margin-top:10px}
+.m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px}
+.m-stats b{display:block;font-family:var(--m-head);font-weight:var(--m-hw);font-size:21px;line-height:1;color:var(--m-dark)}
+.m-stats span{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--m-muted)}
+.m-bar{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px 16px;background:linear-gradient(transparent,var(--m-bg) 30%)}
+.m-bar a{border-radius:99px;padding:11px;text-align:center;font-weight:700;font-size:12.5px}
+.m-bar .wa{background:#25D366;color:#fff}.m-bar .bk{background:var(--m-dark);color:#fff}
+/* 03 whatsapp */
+.wa-grid{display:grid;gap:40px;align-items:start}
+@media(min-width:980px){.wa-grid{grid-template-columns:340px 1fr}}
+.chat{background:#E9E2D6;height:720px;padding:46px 10px 12px;display:flex;flex-direction:column;gap:7px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12.6px;overflow:hidden}
+.chat .hd{position:absolute;top:0;left:0;right:0;background:#075E54;color:#fff;padding:36px 14px 10px;display:flex;align-items:center;gap:10px;font-size:13px;z-index:2}
+.chat .hd i{width:30px;height:30px;border-radius:50%;background:var(--slate);display:grid;place-items:center;font-style:normal;font-size:9px;letter-spacing:.12em}
+.chat .hd small{display:block;opacity:.8;font-size:10.5px}
+.chat .day{align-self:center;background:rgba(255,255,255,.8);font-size:10.5px;padding:3px 9px;border-radius:7px;color:#555;margin:4px 0}
+.b{max-width:84%;padding:7px 9px 5px;border-radius:9px;line-height:1.35;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.b.in{background:#fff;align-self:flex-start;border-top-left-radius:2px}
+.b.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:2px}
+.b .t{display:block;text-align:right;font-size:9.5px;color:#888;margin-top:2px}
+.b .opts{display:grid;gap:4px;margin-top:6px}
+.b .opts span{border-top:1px solid #eee;padding-top:5px;color:#0a7cc0;text-align:center;font-weight:600}
+.flows{display:grid;gap:0;border-top:1px solid var(--ink)}
+.flow{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media(max-width:560px){.flow{grid-template-columns:1fr;gap:6px}}
+.flow .when{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--red)}
+.flow b{display:block;font-size:1.08rem;margin-bottom:4px}
+.flow p{color:#3a3935;font-size:.96rem}
+.flow q{display:block;margin-top:8px;font-style:italic;color:var(--muted);quotes:none;font-size:.92rem;border-left:2px solid var(--line);padding-left:10px}
+
+/* 04 report */
+.report{display:grid;gap:36px;align-items:start}
+@media(min-width:980px){.report{grid-template-columns:1fr 1fr}}
+.mail{background:#fff;border:1px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:24px;font-size:.95rem}
+.mail .from{font-family:var(--mono);font-size:.7rem;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.mail h4{font-size:1.3rem;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.kpis div{background:var(--paper);padding:12px}
+.kpis b{display:block;font-variation-settings:"wdth" 80,"wght" 800;font-size:1.7rem;line-height:1}
+.kpis span{font-size:.8rem;color:var(--muted)}
+.bars{display:grid;gap:7px;margin:6px 0 14px}
+.bars div{display:grid;grid-template-columns:118px 1fr 34px;align-items:center;gap:8px;font-size:.82rem}
+.bars i{display:block;height:10px;background:var(--ink)}
+.sample{display:inline-block;font-family:var(--mono);font-size:.62rem;background:var(--yellow);padding:2px 6px;letter-spacing:.05em;text-transform:uppercase}
+
+/* 05 roadmap */
+.road{display:grid;border-top:1px solid var(--ink)}
+@media(min-width:900px){.road{grid-template-columns:repeat(3,1fr)}}
+.phase{padding:24px 22px 26px 0;border-bottom:1px solid var(--ink)}
+@media(min-width:900px){.phase{border-bottom:0;border-right:1px solid var(--ink);padding-left:22px}.phase:first-child{padding-left:0}.phase:last-child{border-right:0}}
+.phase .mono{color:var(--red)}
+.phase h3{font-size:clamp(1.9rem,3vw,2.5rem);margin:8px 0 14px}
+.phase ul{padding-left:18px;display:grid;gap:8px;color:#2b2a27}
+.phase .out{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:.92rem}
+.phase .out b{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+
+/* 06 calculator */
+.calc{display:grid;gap:30px;align-items:start}
+@media(min-width:980px){.calc{grid-template-columns:1fr 1fr}}
+.inputs{display:grid;gap:20px}
+.inp label{display:flex;justify-content:space-between;gap:10px;font-weight:600;margin-bottom:8px}
+.inp label output{font-family:var(--mono);font-weight:500}
+.inp input[type=range]{width:100%;accent-color:var(--ink)}
+.inp small{color:var(--muted);display:block;margin-top:4px}
+.result{background:var(--ink);color:var(--cream);padding:28px}
+.result .mono{color:var(--yellow)}
+.result b.big{display:block;font-variation-settings:"wdth" 70,"wght" 900;font-size:clamp(3.2rem,8vw,5.4rem);line-height:.95;margin:10px 0 6px}
+.result ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:8px;border-top:1px solid rgba(241,238,230,.25);padding-top:14px;font-size:.95rem}
+.result li{display:flex;justify-content:space-between;gap:10px}
+.result small{display:block;margin-top:16px;opacity:.7;font-size:.82rem}
+
+/* 07 offer */
+.offer{display:grid;gap:0;border:1px solid var(--ink)}
+@media(min-width:860px){.offer{grid-template-columns:1fr 1fr}}
+.offer div{padding:28px}
+.offer div+div{border-top:1px solid var(--ink)}
+@media(min-width:860px){.offer div+div{border-top:0;border-left:1px solid var(--ink)}}
+.offer .price{font-variation-settings:"wdth" 75,"wght" 900;font-size:2.8rem;line-height:1;margin:10px 0 14px}
+.offer ul{padding-left:18px;display:grid;gap:6px;color:#2b2a27}
+
+/* final cta */
+.final{background:var(--red);color:var(--ink);padding:80px 0}
+.final h2{font-size:clamp(3rem,8vw,6.6rem)}
+.final .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 22px;font-weight:700;border:1.5px solid var(--ink)}
+.btn.dark{background:var(--ink);color:var(--cream)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.foot{padding:28px 0 40px;color:var(--muted);font-size:.85rem}
+.foot .wrap{display:grid;gap:6px}
+
+/* booking drawer (Calendly) */
+.book{position:fixed;inset:0;z-index:90;display:none}
+.book.open{display:block}
+.book .bg{position:absolute;inset:0;background:rgba(13,13,15,.55)}
+.book .panel{position:absolute;right:0;top:0;bottom:0;width:min(560px,100%);background:var(--cream);border-left:1px solid var(--ink);display:flex;flex-direction:column}
+.book .ph{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--ink)}
+.book iframe{flex:1;border:0;width:100%}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+@media(max-width:700px){
+  .sec{padding:56px 0}
+  .browser{box-shadow:6px 6px 0 var(--ink)}
+}
+
+:root{--m-bg:#FAF7F1;--m-surface:#FFFFFF;--m-ink:#1D2A2E;--m-muted:#66706F;--m-line:#E8E0D0;--m-acc:#0E8A99;--m-acc2:#C9AE7A;--m-on-acc:#FFFFFF;--m-dark:#12343B;--m-dark-rgb:18,52,59;--m-head:'DM Serif Display',Georgia,serif;--m-hw:400;--m-hw2:400;--m-hls:-.01em;--m-em:italic;--m-body:'DM Sans','IBM Plex Sans Arabic',system-ui,sans-serif;--m-logo:'DM Serif Display',Georgia,serif;--m-logow:400;--m-logos:2.3cqi;--m-logols:.06em;--m-rad:1}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="https://qanatstudio.com"><b>QANAT</b><span class="mono">Prepared for CELEBRITY Smile Medical Center · Oct 2026</span></a>
+    <a class="cta-s" href="#talk" data-book>Book 30 min ↗</a>
+  </div>
+</header>
+
+<section class="sec hero">
+  <div class="wrap">
+    <div>
+      <p class="mono" style="color:var(--red);margin-bottom:18px">A diagnostic for Dr Tarek Saadi</p>
+      <h1 class="cond">CELEBRITY Smile,<br>booked <em>in two taps.</em></h1>
+    </div>
+    <div class="letter">
+      <p>Dr Tarek, we spent a morning on celebritysmileuae.com the way a new patient would.</p>
+      <p>Below is what we found, what your homepage could look like in Arabic and English, how a booking would flow on WhatsApp, and a 90-day plan. Everything starts from your clinic, your technology and your 407 reviews.</p>
+      <p style="color:var(--muted)">Yahia El Bellaj, Founder of Qanat</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="facts"><div><b>4.9★</b><span class="mono">407 Google reviews</span></div><div><b>7.2k</b><span class="mono">Instagram followers</span></div><div><b>Same day</b><span class="mono">Digital treatments</span></div><div><b>Corniche</b><span class="mono">Khor Fakkan</span></div></div></div>
+</section>
+
+<section class="sec" id="today">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">01 · What a new patient sees today</span>
+      <h2 class="cond">Loved on Google.<br>Hard to reach online.</h2>
+      <p>Your website, as it loaded on 27 October. 407 reviews at 4.9 say the care is excellent. Online, several of the ways a patient tries to reach you don’t work.</p>
+    </div>
+    <div class="today">
+      <div class="browser rv">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">celebritysmileuae.com</span></div>
+        <img src="before.jpg" alt="CELEBRITY Smile homepage today" loading="lazy">
+      </div>
+      <ol class="findings rv"><li><span class="n">01</span><div><b>The email on your site does not receive mail.</b><p>info@celebritysmileuae.com is shown on every page and on the appointment page. A message sent to it on 25 October came back: the mailbox does not exist. Anyone who writes in never reaches you.</p></div></li><li><span class="n">02</span><div><b>A phone button that does not call.</b><p>The most visible button in the header shows your number with a phone icon, but it opens the appointment form. The “Call us today” number in the top bar is plain text, so on a computer there is no click-to-call.</p></div></li><li><span class="n">03</span><div><b>WhatsApp hidden in the footer.</b><p>WhatsApp, the channel most of your patients use, is a small icon at the bottom of a long page, and on a computer it opens WhatsApp Web. No floating button, no prefilled message.</p></div></li><li><span class="n">04</span><div><b>Booking is a callback request.</b><p>The form has no date or time and the phone number is optional, so your team chases each request. The site is in Arabic only, with no English version for expat and visiting patients.</p></div></li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="new">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">02 · Your new homepage, first draft</span>
+      <h2 class="cond">Digital dentistry,<br>in two languages.</h2>
+      <p>Same gold, same teal, same S swoosh. We studied the best premium clinic sites and kept only what earns trust and bookings: Dr Tarek in front, your technology explained simply, and WhatsApp everywhere. Try the booking card in Arabic or English.</p>
+    </div>
+    <div class="dir rv">
+      <div><span class="mono">Palette · taken from your logo</span><div class="sw"><div><i style="background:#FAF7F1"></i><span>Pearl<br>#FAF7F1</span></div><div><i style="background:#C9AE7A"></i><span>Sand gold<br>#C9AE7A</span></div><div><i style="background:#0E8A99"></i><span>Celebrity teal<br>#0E8A99</span></div><div><i style="background:#12343B"></i><span>Deep teal<br>#12343B</span></div><div><i style="background:#C0C0C0"></i><span>Silver<br>#C0C0C0</span></div></div></div>
+      <div class="type"><span class="mono">Type</span><p class="f1">Precise, <em>painless.</em></p><p class="f2">DM Serif Display for headlines, DM Sans for reading, IBM Plex Sans Arabic for the Arabic version. Your gold S swoosh stays.</p></div>
+      <div><span class="mono">Principles</span><ul class="princ"><li><b>Real photos.</b> Your clinic, shot for the site.</li><li><b>WhatsApp first.</b> Floating, prefilled, bilingual.</li><li><b>Every channel works.</b> Email, phone and form, tested.</li></ul></div>
+    </div>
+    <div class="duo">
+      <div class="rv">
+        <div class="browser">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">celebritysmileuae.com · draft by Qanat</span></div>
+          <div class="site v-split">
+            <nav class="n-nav">
+              <span class="n-logo"><b>CELEBRITY SMILE</b><small>Medical Center · Khor Fakkan</small></span>
+              <span class="n-links"><span>Treatments</span><span>Technology</span><span>Dr Tarek</span><span>العربية</span></span>
+              <span class="n-book">Book a visit</span>
+            </nav>
+            <div class="n-hero">
+              <span class="pin" style="left:1.4cqi;top:3cqi">1</span>
+              <div class="n-copy">
+                <span class="n-eyebrow">Digital dentistry · Khor Fakkan Corniche</span>
+                <h3 class="n-h">Digital, painless dentistry<br><em>on the Corniche.</em></h3>
+                <p class="n-p">Same-day treatment, digitally guided implants, laser care and computer-controlled anaesthesia. In Arabic and English, open every day except Friday.</p>
+                <div class="n-ctas"><span class="n-btn">Book a visit</span><span class="n-btn ghost">WhatsApp us</span></div>
+              </div>
+              <div class="n-photo" style="background-image:url(lead.jpg)"></div>
+            </div>
+            <div class="n-float"><span class="pin" style="left:-1.2cqi;top:-1.2cqi">2</span><div class="widget" data-widget>
+                <div class="w-title"><b>Book a visit</b><span>● Slots today</span></div>
+                <div class="w-tabs" role="tablist"><button role="tab" aria-selected="true" data-k="ar">العربية</button><button role="tab" aria-selected="false" data-k="en">English</button></div>
+                <div class="w-row"><select class="w-sel" aria-label="Treatment"><option>Check-up &amp; cleaning</option><option>Implant consultation</option><option>Clear aligners &amp; braces</option><option>Laser treatments</option><option>Jaw pain (TMJ)</option><option>Whitening</option><option>Children</option></select></div>
+                <div class="w-row" data-slots></div>
+                <p class="w-note" data-note></p>
+              </div></div>
+            <div class="n-stats"><span class="pin" style="left:1.4cqi;top:3.4cqi">3</span><div><b>4.9★</b><span>407 reviews</span></div><div><b>7.2k</b><span>Instagram</span></div><div><b>Same day</b><span>Treatments</span></div><div><b>2</b><span>Languages</span></div></div>
+            <div class="n-sec" style="padding-top:2cqi">
+              <span class="pin" style="left:1.4cqi;top:3cqi">4</span>
+              <div class="n-head"><h3>What brings people <em>to the Corniche</em></h3><span>All treatments →</span></div>
+              <div class="n-cards"><div class="n-card"><svg viewBox="0 0 32 32"><path d="M10 6h12c0 4-2 6-6 6s-6-2-6-6z"/><path d="M13 12v3h6v-3"/><path d="M14 15l-1 3h6l-1-3"/><path d="M13 18l1 3h4l1-3"/><path d="M14 21l1 3h2l1-3"/></svg><b>Guided implants</b><p>Digital planning sets the length and position of every implant.</p><u>Book a consultation →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><path d="M9 9c0-2 3-3 7-3s7 1 7 3-1 4-2 7-1 9-3 9-2-6-2-6-0 6-2 6-2-6-3-9-2-5-2-7z"/><path d="M24 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg><b>Digital smile design</b><p>Restorations designed and milled with CAD/CAM, in fewer visits.</p><u>Book a consultation →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="5"/><path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M7.5 24.5l2-2M22.5 9.5l2-2"/></svg><b>Laser care</b><p>Old veneers removed and gums lightened by laser, without surgery.</p><u>Book a consultation →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><path d="M16 26s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z"/></svg><b>Painless anaesthesia</b><p>Computer-controlled single-tooth anaesthesia instead of the classic syringe.</p><u>Book a visit →</u></div></div>
+            </div>
+            <div class="n-sec"><span class="pin" style="left:1.4cqi;top:3cqi">5</span><div class="n-doc noimg">
+                <span class="wm">S</span>
+                
+                <div>
+                  <span class="n-eyebrow">Your dentist</span>
+                  <p class="q" style="margin-top:1.4cqi">“Most people fear the needle more than the treatment. With computer-controlled anaesthesia and digital planning, we take the fear out of both.”</p>
+                  <p class="who"><b>Dr Tarek Saadi</b>Medical Director, CELEBRITY Smile Medical Center</p>
+                  <ul><li>Computer-controlled anaesthesia</li><li>3D CBCT imaging</li><li>CAD/CAM in-house</li><li>Waterlaser</li></ul>
+                </div>
+              </div></div>
+            <div class="n-sec n-dark" style="--m-ncl:2">
+              <div class="n-head"><h3>Technology, <em>under one roof</em></h3><span>Our technology →</span></div>
+              <div class="n-clin"><figure><div class="ph" style="background-image:url(hero.jpg)"></div><b>Laser dentistry</b><p>Veneer removal and gum depigmentation with a waterlaser.</p><u>Book a consultation →</u></figure><figure><div class="ph" style="background-image:url(place2.jpg)"></div><b>Digital impressions</b><p>A 3D scan instead of trays, for crowns and aligners in fewer visits.</p><u>Book a consultation →</u></figure></div>
+            </div>
+            <div class="n-sec">
+              <div class="n-head"><h3>Why patients <em>choose us</em></h3><span>Read our 407 reviews →</span></div>
+              <div class="n-revs"><div class="n-rev"><i>✓</i><p>4.9 stars from 407 Google reviews, for one clinic on the Corniche.</p></div><div class="n-rev"><i>✓</i><p>No classic syringe: computer-controlled anaesthesia, one tooth at a time.</p></div><div class="n-rev"><i>✓</i><p>Open every day except Friday, 11 am to 8 pm.</p></div></div>
+            </div>
+            <div class="n-foot"><span>CELEBRITY Smile Medical Center · مركز ابتسامة المشاهير الطبي</span><span>Khor Fakkan Corniche · WhatsApp 050 620 8820</span></div>
+          </div>
+        </div>
+        <div class="notes"><div class="note"><b><i>1</i>Dr Tarek in front.</b><p>Your portrait replaces the stock model, and the first line says what your reviews say: digital and painless. Next step: a half-day photo shoot of the clinic.</p></div><div class="note"><b><i>2</i>Book in Arabic or English.</b><p>Pick a treatment and a real slot. The confirmation goes to WhatsApp, in the patient’s language.</p></div><div class="note"><b><i>3</i>Proof in one glance.</b><p>4.9 stars from 407 reviews and same-day treatment, where a new patient decides.</p></div><div class="note"><b><i>4</i>Technology made simple.</b><p>Guided implants, laser and painless anaesthesia, each with its own page, booking link and tracking.</p></div><div class="note"><b><i>5</i>Your voice.</b><p>A short note from Dr Tarek on the fear of the needle. The quote is a draft, to be written with you.</p></div><div class="note"><b><i>+</i>Every channel works.</b><p>A working email, a real click-to-call and a floating WhatsApp button, all tested before launch.</p></div></div>
+      </div>
+      <div class="rv">
+        <div class="phone">
+          <div class="m-site">
+            <div class="m-hero" style="background-image:url(lead.jpg)">
+              <div class="m-top"><b>CELEBRITY SMILE</b><span>≡</span></div>
+              <div class="m-copy"><h3 class="m-h">Painless dentistry, <em>on the Corniche.</em></h3><p class="m-p">Khor Fakkan · Arabic &amp; English.</p></div>
+            </div>
+            <div class="m-w widget" data-widget>
+              <div class="w-title"><b>Book a visit</b><span>● Slots today</span></div>
+              <div class="w-tabs" role="tablist"><button role="tab" aria-selected="true" data-k="ar">العربية</button><button role="tab" aria-selected="false" data-k="en">English</button></div>
+              <div class="w-row" data-slots></div>
+            </div>
+            <div class="m-stats"><div><b>4.9★</b><span>Google</span></div><div><b>407</b><span>Reviews</span></div><div><b>2</b><span>Languages</span></div></div>
+            <div class="m-bar"><a class="wa" href="#wa">WhatsApp us</a><a class="bk" href="#new">Book a visit</a></div>
+          </div>
+        </div>
+        <p class="hand" style="text-align:center;margin-top:16px">Arabic or English,<br>one thumb away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="wa">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">03 · The patient journey, on WhatsApp</span>
+      <h2 class="cond">Booked on WhatsApp.<br>In Arabic or English.</h2>
+      <p>One WhatsApp line, your 050 620 8820. It answers in seconds in the patient’s language, books into your diary, reminds patients and brings them back. Your front desk takes over whenever a human is better.</p>
+    </div>
+    <div class="wa-grid">
+      <div class="phone rv">
+        <div class="chat">
+          <div class="hd"><i>CS</i><div>CELEBRITY Smile<small>Typically replies instantly</small></div></div>
+          <span class="day">الثلاثاء</span><div class="b out">مرحبا، عندكم موعد لتبييض الأسنان هذا الأسبوع؟<span class="t">21:12</span></div><div class="b in">أهلاً سارة، شكراً لتواصلك مع مركز ابتسامة المشاهير. نعم، أي موعد يناسبك؟<div class="opts"><span>الأربعاء 6:30 م</span><span>الخميس 11:00 ص</span><span>الأحد 1:15 م</span></div><span class="t">21:12</span></div><div class="b out">الخميس 11:00 ص<span class="t">21:13</span></div><div class="b in">تم الحجز: تبييض الأسنان، الخميس 11:00 صباحاً، بناية دانة الكورنيش، خورفكان. مدة الجلسة ساعة تقريباً.<span class="t">21:13</span></div><span class="day">الأربعاء</span><div class="b in">مرحباً سارة، نراك غداً الساعة 11:00. أرسلي 1 للتأكيد أو 2 لتغيير الموعد.<span class="t">11:00</span></div><div class="b out">1<span class="t">11:03</span></div><span class="day">الخميس</span><div class="b in">شكراً لزيارتك اليوم. إذا أعجبتك الخدمة، تقييمك على Google يساعد غيرك ⭐<span class="t">13:20</span></div>
+        </div>
+        <p class="mono" style="text-align:center;margin-top:12px;color:var(--muted)">Sample conversation</p>
+      </div>
+      <div class="flows rv"><div class="flow"><span class="when">Any time</span><div><b>Instant answer, real slots</b><p>Treatments, insurance, parking and the next free slots. Anything clinical or delicate goes straight to your front desk.</p></div></div><div class="flow"><span class="when">D-1 and H-2</span><div><b>Reminders that cut no-shows</b><p>Confirm or reschedule in one reply. Every freed slot is offered to the waiting list.</p></div></div><div class="flow"><span class="when">Same day</span><div><b>Review request</b><p>Sent after the visit, in one tap, to your Google profile.</p><q>The habit that turns happy patients into the review count you deserve.</q></div></div><div class="flow"><span class="when">6 months</span><div><b>Hygiene recall</b><p>“It’s been six months since your last cleaning.” Your easiest revenue, on autopilot.</p></div></div><div class="flow"><span class="when">Treatment plans</span><div><b>Follow-up of open quotes</b><p>Implants, crowns and aligners are decided over weeks. A gentle check-in at day 3 and day 10, written by your team.</p></div></div><div class="flow"><span class="when">Every message</span><div><b>Nothing gets lost</b><p>Form, email and WhatsApp land in one inbox your team actually reads, with an instant acknowledgement to the patient.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="report">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">04 · One number every Monday</span>
+      <h2 class="cond">Know which treatment<br>fills which chair.</h2>
+      <p>Today it’s hard to tell which ad, page or channel brought a new implant or aligner patient. Every Monday at 8 am you get one short email: bookings per treatment, per source, and what each new patient cost.</p>
+    </div>
+    <div class="report">
+      <div class="mail rv">
+        <p class="from">From: Qanat · To: Dr Tarek Saadi · Mon 08:00</p>
+        <h4>CELEBRITY Smile · week 47 <span class="sample">Sample</span></h4>
+        <div class="kpis"><div><b>31</b><span>New bookings</span></div><div><b>12</b><span>Booked outside opening hours</span></div><div><b>4%</b><span>No-shows (reminders on)</span></div><div><b>+9</b><span>New Google reviews</span></div></div>
+        <p class="mono" style="color:var(--muted)">Bookings by treatment</p>
+        <div class="bars"><div><span>Check-up &amp; cleaning</span><i style="width:100%"></i><span>10</span></div><div><span>Whitening</span><i style="width:70%"></i><span>7</span></div><div><span>Implants</span><i style="width:50%"></i><span>5</span></div><div><span>Aligners</span><i style="width:40%"></i><span>4</span></div><div><span>Laser</span><i style="width:30%"></i><span>3</span></div></div>
+        <p style="font-size:.9rem;color:#3a3935">Instagram brought 11 bookings this week, Google 9. Suggestion: boost the laser veneer-removal video.</p>
+      </div>
+      <div class="rv" style="display:grid;gap:18px;font-size:1.02rem">
+        <p><b>These figures are illustrative.</b> They show the format, not a promise. Your real report starts in week 3, once booking and tracking are live.</p>
+        <p>Every booking is tagged with its source (Google, Instagram, WhatsApp, a referral), so you can decide where to spend with facts, treatment by treatment.</p>
+        <p class="hand">No dashboard to log into.<br>Just one email you read with your coffee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plan">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="mono">05 · The first 90 days</span><h2 class="cond">Three months,<br>three milestones.</h2></div>
+    <div class="road rv"><div class="phase"><span class="mono">Days 1 to 30</span><h3 class="cond">Open the door</h3><ul><li>New homepage and service pages, with your photos and your team</li><li>Online booking synced with your diary</li><li>One WhatsApp line, instant answers, handover to the front desk</li><li>Google Business profile cleaned up</li></ul><p class="out"><b>You’ll see</b>Patients booking online, and at night.</p></div><div class="phase"><span class="mono">Days 31 to 60</span><h3 class="cond">Keep every slot full</h3><ul><li>D-1 and H-2 reminders, waiting list for freed slots</li><li>Review request after every visit</li><li>Recall of past patients</li><li>Monday report, live</li></ul><p class="out"><b>You’ll see</b>Fewer empty slots, reviews arriving every week.</p></div><div class="phase"><span class="mono">Days 61 to 90</span><h3 class="cond">Grow what pays</h3><ul><li>Campaigns for your highest-value services</li><li>Each with its own page and its own cost per booking</li><li>Follow-up of open treatment plans</li><li>Monthly review with you: keep, cut, scale</li></ul><p class="out"><b>You’ll see</b>What one new implant patient really costs you.</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="worth">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">06 · What it could be worth</span>
+      <h2 class="cond">Your numbers,<br>not ours.</h2>
+      <p>We don’t know your diary, so we won’t pretend. Move the sliders to your own figures and see what fewer no-shows and after-hours bookings would add each month.</p>
+    </div>
+    <div class="calc rv">
+      <div class="inputs"><div class="inp"><label>Appointments booked per month <output id="o-appt"></output></label><input id="appt" type="range" min="20" max="1500" step="10" value="300"></div><div class="inp"><label>Average value of a visit (AED) <output id="o-val"></output></label><input id="val" type="range" min="100" max="3000" step="50" value="700"></div><div class="inp"><label>No-show or late-cancel rate today <output id="o-ns"></output></label><input id="ns" type="range" min="2" max="25" step="1" value="10"><small>Clinics usually halve it with two reminders and a waiting list. We assume a reduction of one third.</small></div><div class="inp"><label>Extra bookings from evenings and WhatsApp <output id="o-ex"></output></label><input id="ex" type="range" min="0" max="15" step="1" value="4"><small>Enquiries that today wait until the next working morning.</small></div></div>
+      <div class="result">
+        <span class="mono">Estimated extra revenue per month</span>
+        <b class="big" id="r-total">AED 0</b>
+        <span>with your assumptions, before any advertising</span>
+        <ul>
+          <li><span>Visits saved from no-shows</span><span id="r-a">0</span></li>
+          <li><span>Extra bookings</span><span id="r-b">0</span></li>
+          <li><span>Over 12 months</span><span id="r-year">AED 0</span></li>
+        </ul>
+        <small>An estimate to start the conversation, not a promise. We measure the real figures from week 3.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="talk">
+  <div class="wrap">
+    <p class="mono">Next step</p>
+    <h2 class="cond">30 minutes.<br>Your diary, your screen.</h2>
+    <p style="max-width:560px;margin-top:18px;font-size:1.1rem">We’ll walk through this draft together, adjust it to how CELEBRITY Smile really works, and you decide if it’s worth doing. No slides.</p>
+    <div class="row">
+      <a class="btn dark" href="https://calendly.com/hello-qanatstudio/30min" data-book>Book 30 minutes ↗</a>
+      <a class="btn" href="https://wa.me/971551397867?text=Hi%20Yahia,%20I%20saw%20the%20CELEBRITY%20Smile%20diagnostic">WhatsApp Yahia</a>
+      <a class="btn" href="mailto:hello@qanatstudio.com?subject=CELEBRITY%20Smile%20diagnostic">hello@qanatstudio.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Prepared by Qanat for CELEBRITY Smile Medical Center only, October 2026. This page is not listed or indexed.</p>
+    <p>The draft homepage uses CELEBRITY Smile’s own name, logo colours, Dr Tarek’s portrait and public information for illustration. Service images are placeholders, to be replaced by photos of your clinic. Rating as shown on Google on 27 October 2026. Quotes attributed to Dr Tarek are drafts. Sample figures are marked as such.</p>
+  </div>
+</footer>
+
+<div class="book" aria-hidden="true">
+  <div class="bg" data-close></div>
+  <div class="panel">
+    <div class="ph"><span class="mono">Book 30 minutes with Yahia</span><button data-close aria-label="Close">✕</button></div>
+    <iframe title="Calendly" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+(function(){
+  var data={"ar": {"slots": ["\u0627\u0644\u064a\u0648\u0645 6:30 \u0645", "\u063a\u062f\u0627\u064b 11:00 \u0635", "\u0627\u0644\u0623\u062d\u062f 1:15 \u0645"], "note": "\u0643\u0648\u0631\u0646\u064a\u0634 \u062e\u0648\u0631\u0641\u0643\u0627\u0646 \u00b7 \u0628\u0646\u0627\u064a\u0629 \u062f\u0627\u0646\u0629 \u0627\u0644\u0643\u0648\u0631\u0646\u064a\u0634"}, "en": {"slots": ["Today 6:30 pm", "Tomorrow 11:00", "Sun 1:15 pm"], "note": "Danat Al Corniche Building \u00b7 Khor Fakkan Corniche"}};
+  var bookLabel="Book \u00b7 \u0627\u062d\u062c\u0632";
+  document.querySelectorAll('[data-widget]').forEach(function(w){
+    var slots=w.querySelector('[data-slots]'),note=w.querySelector('[data-note]');
+    function show(k){
+      slots.innerHTML='';
+      data[k].slots.forEach(function(s,i){var b=document.createElement('button');b.className='slot'+(i===0?' on':'');b.textContent=s;b.onclick=function(){slots.querySelectorAll('.slot').forEach(function(x){x.classList.remove('on')});b.classList.add('on')};slots.appendChild(b)});
+      if(!w.classList.contains('m-w')){var go=document.createElement('button');go.className='w-go';go.textContent=bookLabel;slots.appendChild(go)}
+      if(note)note.textContent=data[k].note;
+      w.querySelectorAll('[data-k]').forEach(function(t){t.setAttribute('aria-selected',t.dataset.k===k)});
+    }
+    w.querySelectorAll('[data-k]').forEach(function(t){t.onclick=function(){show(t.dataset.k)}});
+    show(Object.keys(data)[0]);
+  });
+  var site=document.querySelector('.browser .site');
+  function fit(){if(!site)return;site.style.width='';site.style.zoom='';var w=site.parentElement.clientWidth;if(w<760){site.style.width='1000px';site.style.zoom=(w/1000).toFixed(4)}}
+  fit();window.addEventListener('resize',fit);
+  function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
+  function v(id){return +document.getElementById(id).value}
+  function calc(){
+    var a=v('appt'),val=v('val'),ns=v('ns')/100,ex=v('ex');
+    document.getElementById('o-appt').textContent=a;
+    document.getElementById('o-val').textContent=fmt(val);
+    document.getElementById('o-ns').textContent=Math.round(ns*100)+'%';
+    document.getElementById('o-ex').textContent='+'+ex+' / week';
+    var saved=a*ns/3, extra=ex*52/12, total=(saved+extra)*val;
+    document.getElementById('r-a').textContent=Math.round(saved)+' visits';
+    document.getElementById('r-b').textContent=Math.round(extra)+' visits';
+    document.getElementById('r-total').textContent=fmt(total);
+    document.getElementById('r-year').textContent=fmt(total*12);
+  }
+  document.querySelectorAll('.inputs input').forEach(function(i){i.addEventListener('input',calc)});
+  calc();
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  var book=document.querySelector('.book'),fr=book.querySelector('iframe');
+  var cal='https://calendly.com/hello-qanatstudio/30min?hide_gdpr_banner=1&background_color=f1eee6&text_color=0d0d0f&primary_color=f2361d';
+  document.querySelectorAll('[data-book]').forEach(function(a){a.addEventListener('click',function(x){x.preventDefault();if(!fr.src)fr.src=cal;book.classList.add('open');book.setAttribute('aria-hidden','false')})});
+  book.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){book.classList.remove('open');book.setAttribute('aria-hidden','true')})});
+  document.addEventListener('keydown',function(x){if(x.key==='Escape')book.classList.remove('open')});
+})();
+</script>
+</body>
+</html>
