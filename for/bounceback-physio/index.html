@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>BounceBack × Qanat · A diagnostic</title>
+<meta name="description" content="Prepared for BounceBack Physiotherapy: what a new client sees today, a draft homepage, booking on WhatsApp and a 90-day plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --cream:#F1EEE6; --paper:#F7F5EF; --ink:#0D0D0F; --muted:#5E5D58; --line:#D9D5CA;
+  --red:#F2361D; --blue:#1F3BFF; --yellow:#EFE52C;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hand:"Caveat","Bradley Hand",cursive;
+  /* NOA palette, taken from their site and their JLT reception */
+  --noa:#0075BB; --noa-sky:#78C6EE; --sand:#EFE9E1; --stone:#D8CFC2; --slate:#1C2733; --noa-ink:#22303D;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.cond{font-variation-settings:"wdth" 62,"wght" 900;text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
+.hand{font-family:var(--hand);font-weight:700;color:var(--red);font-size:1.45rem;line-height:1.1}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* bar */
+.bar{position:sticky;top:0;z-index:50;background:rgba(241,238,230,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ink)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand b{font-variation-settings:"wdth" 110,"wght" 900;font-size:1.2rem;letter-spacing:-.02em}
+.brand .mono{color:var(--muted)}
+.cta-s{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);padding:10px 16px;font-weight:600;font-size:.88rem;white-space:nowrap}
+.cta-s:hover{background:var(--red)}
+@media(max-width:640px){.brand .mono{display:none}}
+
+/* sections */
+.sec{border-bottom:1px solid var(--ink);padding:72px 0}
+.sec-h{display:grid;gap:14px;margin-bottom:40px;max-width:820px}
+.sec-h .mono{color:var(--red)}
+.sec-h h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+.sec-h p{font-size:1.08rem;color:#2b2a27;max-width:640px}
+
+/* hero */
+.hero{padding:64px 0 56px}
+.hero .wrap{display:grid;gap:40px}
+@media(min-width:980px){.hero .wrap{grid-template-columns:1.25fr .75fr;align-items:end}}
+.hero h1{font-size:clamp(3.4rem,9vw,8.2rem)}
+.hero h1 em{font-style:normal;color:var(--red)}
+.letter{display:grid;gap:14px;font-size:1.06rem;max-width:460px}
+.letter p:first-child{font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);margin-top:48px}
+@media(min-width:780px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{padding:18px 16px 4px 0;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-variation-settings:"wdth" 80,"wght" 800;font-size:2.1rem;line-height:1}
+.facts span{color:var(--muted)}
+
+/* frames */
+.browser{background:#fff;border:1px solid var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:hidden}
+.browser .chrome{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--ink);background:var(--paper)}
+.browser .dots{display:flex;gap:6px}.browser .dots i{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink)}
+.browser .url{flex:1;font-family:var(--mono);font-size:.7rem;background:#fff;border:1px solid var(--line);padding:4px 10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone{width:min(330px,100%);margin:0 auto;border:10px solid var(--ink);border-radius:40px;background:#fff;overflow:hidden;box-shadow:10px 10px 0 rgba(13,13,15,.18);position:relative}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:var(--ink);border-radius:20px;z-index:3}
+
+/* 01 today */
+.today{display:grid;gap:34px}
+@media(min-width:980px){.today{grid-template-columns:1.2fr .8fr;align-items:start}}
+.findings{list-style:none;padding:0;display:grid;border-top:1px solid var(--ink)}
+.findings li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.findings .n{font-family:var(--mono);font-size:.78rem;color:var(--red);padding-top:3px}
+.findings b{display:block;font-size:1.05rem;margin-bottom:4px}
+.findings p{color:#3a3935;font-size:.95rem}
+
+/* 02 direction */
+.dir{display:grid;gap:18px;margin-bottom:44px}
+@media(min-width:900px){.dir{grid-template-columns:1.3fr 1fr 1fr}}
+.dir>div{border-top:2px solid var(--ink);padding-top:12px}
+.dir .mono{color:var(--muted);display:block;margin-bottom:10px}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.sw i{display:block;aspect-ratio:1/1.15;border:1px solid rgba(13,13,15,.15)}
+.sw span{display:block;font-family:var(--mono);font-size:.6rem;margin-top:5px;line-height:1.3}
+.type .f1{font-family:var(--m-head);font-weight:var(--m-hw);font-size:2.4rem;line-height:1}
+.type .f1 em{color:var(--m-acc)}
+.type .f2{font-family:var(--m-body);font-size:.95rem;margin-top:8px;color:#3a3935}
+.princ{list-style:none;padding:0;display:grid;gap:8px;font-size:.95rem}
+
+/* 02 mockup : the prospect's site, themed with --m-* variables, scales with its container */
+.duo{display:grid;gap:44px;align-items:start}
+@media(min-width:1040px){.duo{grid-template-columns:1fr 330px}}
+.site{container-type:inline-size;font-family:var(--m-body);color:var(--m-ink);background:var(--m-bg);position:relative;overflow:hidden}
+.pin{position:absolute;z-index:6;width:max(18px,2.4cqi);height:max(18px,2.4cqi);border-radius:50%;background:var(--red);color:#fff!important;letter-spacing:0!important;text-transform:none!important;font-family:var(--mono);font-size:max(9px,1.1cqi);display:grid;place-items:center;font-weight:600;box-shadow:0 0 0 .5cqi rgba(242,54,29,.25)}
+.n-nav{display:flex;align-items:center;justify-content:space-between;padding:2.4cqi 4cqi;font-size:max(9px,1.1cqi);letter-spacing:.03em;position:relative;z-index:3}
+.n-logo{display:flex;flex-direction:column;line-height:1}
+.n-logo b{font-family:var(--m-logo);font-weight:var(--m-logow);font-size:max(14px,var(--m-logos));letter-spacing:var(--m-logols)}
+.n-logo small{font-size:max(6px,.75cqi);letter-spacing:.3em;margin-top:.4cqi;text-transform:uppercase}
+.n-links{display:flex;gap:2.6cqi;opacity:.9}
+.n-book{background:var(--m-acc);color:var(--m-on-acc);padding:1cqi 2.1cqi;border-radius:calc(var(--m-rad)*1cqi);font-weight:700}
+.n-eyebrow{font-size:max(7px,.95cqi);letter-spacing:.24em;text-transform:uppercase;color:var(--m-acc)}
+.n-h{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(22px,5.1cqi);line-height:1.03;letter-spacing:var(--m-hls);margin:1.4cqi 0 1.6cqi}
+.n-h em{font-style:var(--m-em);color:var(--m-acc2)}
+.n-p{font-size:max(9px,1.3cqi);line-height:1.55;max-width:38cqi;opacity:.9}
+.n-ctas{display:flex;gap:1cqi;margin-top:2.4cqi;flex-wrap:wrap}
+.n-btn{background:var(--m-acc);color:var(--m-on-acc);padding:1.1cqi 2.2cqi;border-radius:calc(var(--m-rad)*1cqi);font-weight:700;font-size:max(8px,1.1cqi)}
+.n-btn.ghost{background:transparent;border:1px solid currentColor;color:inherit}
+/* hero, overlay variant */
+.v-overlay .n-hero{position:relative;height:50cqi;background-size:cover;background-position:center 42%;color:#fff}
+.v-overlay .n-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--m-dark-rgb),.86) 0%,rgba(var(--m-dark-rgb),.55) 42%,rgba(var(--m-dark-rgb),.06) 74%),linear-gradient(0deg,rgba(var(--m-dark-rgb),.35),transparent 40%)}
+.v-overlay .n-nav{position:absolute;top:0;left:0;right:0;color:#fff}
+.v-overlay .n-book{background:#fff;color:var(--m-dark)}
+.v-overlay .n-copy{position:absolute;left:4cqi;bottom:5.5cqi;z-index:2;max-width:48cqi}
+.v-overlay .n-eyebrow{color:var(--m-acc2)}
+.v-overlay .n-btn{background:#fff;color:var(--m-dark)}
+.v-overlay .n-btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.v-overlay .n-float{position:absolute;right:4cqi;top:30cqi;z-index:4;width:31cqi}
+.v-overlay .n-stats{width:58cqi}
+/* hero, split variant */
+.v-split .n-hero{display:grid;grid-template-columns:1fr 1fr;gap:3cqi;padding:1cqi 4cqi 0;align-items:center;min-height:44cqi}
+.v-split .n-copy{padding:3cqi 0 9cqi}
+.v-split .n-photo{height:40cqi;border-radius:calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*2cqi) calc(var(--m-rad)*.4cqi);background-size:cover;background-position:center;position:relative}
+.v-split .n-photo::after{content:"";position:absolute;right:-1.6cqi;top:-1.6cqi;width:9cqi;height:9cqi;border-radius:50%;background:var(--m-acc2);opacity:.85;z-index:-1}
+.v-split .n-float{position:absolute;left:46cqi;top:31cqi;z-index:4;width:30cqi}
+.v-split .n-stats{width:42cqi;grid-template-columns:repeat(2,1fr);row-gap:2.4cqi;padding-top:3cqi;padding-bottom:5cqi}
+.v-split .n-copy{padding-bottom:3cqi}
+.widget{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2cqi;box-shadow:0 2cqi 4cqi rgba(var(--m-dark-rgb),.18);color:var(--m-ink)}
+.w-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.4cqi}
+.w-title b{font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi)}
+.w-title span{font-size:max(7px,.9cqi);color:#2e9e5b;font-weight:700}
+.w-tabs{display:flex;gap:.6cqi;background:var(--m-bg);padding:.5cqi;border-radius:99px;width:fit-content;max-width:100%;flex-wrap:wrap}
+.w-tabs button{font-size:max(8px,1.05cqi);font-weight:600;padding:.8cqi 1.6cqi;border-radius:99px;color:var(--m-muted)}
+.w-tabs button[aria-selected=true]{background:var(--m-dark);color:#fff}
+.w-row{display:flex;flex-wrap:wrap;align-items:center;gap:.8cqi;margin-top:1.3cqi}
+.w-sel{width:100%;font-size:max(8px,1.05cqi);border:1px solid var(--m-line);border-radius:.9cqi;padding:.9cqi 1.2cqi;background:var(--m-surface);color:var(--m-ink)}
+.slot{font-size:max(8px,1.05cqi);border:1px solid var(--m-acc);color:var(--m-acc);border-radius:99px;padding:.7cqi 1.2cqi;font-weight:600}
+.slot.on{background:var(--m-acc);color:var(--m-on-acc)}
+.w-go{width:100%;margin-top:.4cqi;background:var(--m-dark);color:#fff;font-weight:700;font-size:max(8px,1.1cqi);padding:1.1cqi;border-radius:99px}
+.w-note{font-size:max(7px,.88cqi);color:var(--m-muted);margin-top:1.1cqi}
+.n-stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);padding:4.2cqi 4cqi 3.6cqi;gap:1cqi}
+.n-stats div{border-left:1px solid var(--m-line);padding-left:1.4cqi}
+.n-stats b{display:block;font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(15px,3.4cqi);line-height:1;color:var(--m-dark)}
+.n-stats span{font-size:max(7px,.88cqi);letter-spacing:.12em;text-transform:uppercase;color:var(--m-muted)}
+.n-sec{padding:4.4cqi 4cqi;position:relative}
+.n-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:2.6cqi;gap:2cqi}
+.n-head h3{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(16px,3.1cqi);letter-spacing:var(--m-hls);line-height:1.05}
+.n-head h3 em{font-style:var(--m-em);color:var(--m-acc)}
+.n-head span{font-size:max(8px,1.05cqi);font-weight:700;color:var(--m-acc);white-space:nowrap}
+.n-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqi}
+.n-card{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2.2cqi;display:flex;flex-direction:column;gap:.9cqi;min-height:19cqi;transition:transform .3s}
+.n-card:nth-child(4n+1){background:var(--m-tile1,var(--m-surface))}.n-card:nth-child(4n+2){background:var(--m-tile2,var(--m-surface))}.n-card:nth-child(4n+3){background:var(--m-tile3,var(--m-surface))}.n-card:nth-child(4n+4){background:var(--m-tile4,var(--m-surface))}
+.n-card:hover{transform:translateY(-.6cqi)}
+.n-card svg{width:max(20px,3.6cqi);height:max(20px,3.6cqi);stroke:var(--m-acc);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.n-card b{font-weight:600;font-size:max(10px,1.45cqi);margin-top:.6cqi}
+.n-card p{font-size:max(8px,1.02cqi);color:var(--m-muted);line-height:1.5}
+.n-card u{margin-top:auto;text-decoration:none;font-size:max(8px,1.02cqi);font-weight:700;color:var(--m-acc)}
+.n-doc{display:grid;grid-template-columns:30cqi 1fr;gap:4cqi;align-items:center;position:relative}
+.n-doc.noimg{grid-template-columns:1fr}
+.n-doc .wm{position:absolute;right:-2cqi;top:-6cqi;font-family:var(--m-head);font-weight:var(--m-hw);font-size:20cqi;line-height:1;color:var(--m-line);opacity:.6;pointer-events:none;letter-spacing:-.04em;white-space:nowrap}
+.n-doc img{width:100%;height:36cqi;object-fit:cover;object-position:top;border-radius:calc(var(--m-rad)*1.6cqi);position:relative}
+.n-doc .q{font-family:var(--m-head);font-style:var(--m-em);font-weight:var(--m-hw);font-size:max(13px,2.4cqi);line-height:1.25;position:relative}
+.n-doc .who{font-size:max(8px,1.05cqi);color:var(--m-muted);margin-top:2cqi;position:relative}
+.n-doc .who b{display:block;color:var(--m-ink);font-size:max(9px,1.3cqi)}
+.n-doc ul{list-style:none;padding:0;margin-top:2cqi;display:flex;flex-wrap:wrap;gap:.8cqi;position:relative}
+.n-doc li{font-size:max(7px,.95cqi);border:1px solid var(--m-line);border-radius:99px;padding:.6cqi 1.2cqi;background:var(--m-surface)}
+.n-dark{background:var(--m-dark);color:#fff}
+.n-dark .n-head h3 em,.n-dark .n-head span{color:var(--m-acc2)}
+.n-clin{display:grid;grid-template-columns:repeat(var(--m-ncl,2),1fr);gap:2cqi}
+.n-clin figure{margin:0}
+.n-clin .ph{height:20cqi;border-radius:calc(var(--m-rad)*1.4cqi);background-size:cover;background-position:center;background-color:rgba(255,255,255,.08)}
+.n-clin b{display:block;font-family:var(--m-head);font-weight:var(--m-hw2);font-size:max(12px,1.9cqi);margin-top:1.6cqi}
+.n-clin p{font-size:max(8px,1.02cqi);opacity:.75;margin-top:.5cqi}
+.n-clin u{display:inline-block;margin-top:1.2cqi;text-decoration:none;font-size:max(8px,1.02cqi);font-weight:700;border-bottom:1px solid var(--m-acc2);color:var(--m-acc2)}
+.n-revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqi}
+.n-rev{background:var(--m-surface);border-radius:calc(var(--m-rad)*1.6cqi);padding:2.2cqi}
+.n-rev i{font-style:normal;color:#E7A93B;letter-spacing:.1em;font-size:max(9px,1.2cqi)}
+.n-rev p{font-family:var(--m-head);font-weight:var(--m-hw);font-size:max(10px,1.45cqi);line-height:1.35;margin:1cqi 0}
+.n-rev span{font-size:max(7px,.9cqi);color:var(--m-muted)}
+.n-foot{display:flex;justify-content:space-between;align-items:center;padding:3cqi 4cqi;border-top:1px solid var(--m-line);font-size:max(7px,.95cqi);color:var(--m-muted)}
+
+/* annotations */
+.notes{display:grid;gap:14px;margin-top:30px}
+@media(min-width:760px){.notes{grid-template-columns:repeat(3,1fr)}}
+.note{border-top:2px solid var(--ink);padding-top:12px}
+.note b{display:flex;gap:8px;align-items:center;margin-bottom:4px}
+.note b i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--mono);font-size:.7rem;display:grid;place-items:center;flex:none}
+.note p{color:#3a3935;font-size:.95rem}
+
+/* mobile mockup */
+.m-site{font-family:var(--m-body);color:var(--m-ink);background:var(--m-bg);height:640px;overflow:hidden;position:relative}
+.m-hero{height:330px;background-size:cover;background-position:30% center;position:relative;color:#fff;padding:44px 16px 0}
+.m-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--m-dark-rgb),.55),rgba(var(--m-dark-rgb),.12) 35%,rgba(var(--m-dark-rgb),.86))}
+.m-top,.m-copy{position:relative;z-index:1}
+.m-top{display:flex;justify-content:space-between;align-items:center}
+.m-top b{font-family:var(--m-logo);font-weight:var(--m-logow);letter-spacing:var(--m-logols);font-size:16px}
+.m-top span{font-size:20px}
+.m-copy{position:absolute;left:16px;right:16px;bottom:22px}
+.m-h{font-family:var(--m-head);font-weight:var(--m-hw);font-size:28px;line-height:1.04;letter-spacing:var(--m-hls)}
+.m-h em{font-style:var(--m-em);color:var(--m-acc2)}
+.m-p{font-size:12px;opacity:.88;margin-top:8px}
+.m-w{margin:-6px 12px 0;position:relative;z-index:2;border-radius:16px;padding:12px;box-shadow:0 10px 24px rgba(var(--m-dark-rgb),.16)}
+.m-w .w-title b{font-size:16px}.m-w .w-title span{font-size:10px}.m-w .w-title{margin-bottom:8px}
+.m-w .w-tabs button{font-size:11px;padding:6px 11px}
+.m-w .slot{font-size:11px;padding:6px 10px}
+.m-w .w-row{gap:6px;margin-top:10px}
+.m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px}
+.m-stats b{display:block;font-family:var(--m-head);font-weight:var(--m-hw);font-size:21px;line-height:1;color:var(--m-dark)}
+.m-stats span{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--m-muted)}
+.m-bar{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px 16px;background:linear-gradient(transparent,var(--m-bg) 30%)}
+.m-bar a{border-radius:99px;padding:11px;text-align:center;font-weight:700;font-size:12.5px}
+.m-bar .wa{background:#25D366;color:#fff}.m-bar .bk{background:var(--m-dark);color:#fff}
+/* 03 whatsapp */
+.wa-grid{display:grid;gap:40px;align-items:start}
+@media(min-width:980px){.wa-grid{grid-template-columns:340px 1fr}}
+.chat{background:#E9E2D6;height:720px;padding:46px 10px 12px;display:flex;flex-direction:column;gap:7px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12.6px;overflow:hidden}
+.chat .hd{position:absolute;top:0;left:0;right:0;background:#075E54;color:#fff;padding:36px 14px 10px;display:flex;align-items:center;gap:10px;font-size:13px;z-index:2}
+.chat .hd i{width:30px;height:30px;border-radius:50%;background:var(--slate);display:grid;place-items:center;font-style:normal;font-size:9px;letter-spacing:.12em}
+.chat .hd small{display:block;opacity:.8;font-size:10.5px}
+.chat .day{align-self:center;background:rgba(255,255,255,.8);font-size:10.5px;padding:3px 9px;border-radius:7px;color:#555;margin:4px 0}
+.b{max-width:84%;padding:7px 9px 5px;border-radius:9px;line-height:1.35;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.b.in{background:#fff;align-self:flex-start;border-top-left-radius:2px}
+.b.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:2px}
+.b .t{display:block;text-align:right;font-size:9.5px;color:#888;margin-top:2px}
+.b .opts{display:grid;gap:4px;margin-top:6px}
+.b .opts span{border-top:1px solid #eee;padding-top:5px;color:#0a7cc0;text-align:center;font-weight:600}
+.flows{display:grid;gap:0;border-top:1px solid var(--ink)}
+.flow{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media(max-width:560px){.flow{grid-template-columns:1fr;gap:6px}}
+.flow .when{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--red)}
+.flow b{display:block;font-size:1.08rem;margin-bottom:4px}
+.flow p{color:#3a3935;font-size:.96rem}
+.flow q{display:block;margin-top:8px;font-style:italic;color:var(--muted);quotes:none;font-size:.92rem;border-left:2px solid var(--line);padding-left:10px}
+
+/* 04 report */
+.report{display:grid;gap:36px;align-items:start}
+@media(min-width:980px){.report{grid-template-columns:1fr 1fr}}
+.mail{background:#fff;border:1px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:24px;font-size:.95rem}
+.mail .from{font-family:var(--mono);font-size:.7rem;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.mail h4{font-size:1.3rem;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.kpis div{background:var(--paper);padding:12px}
+.kpis b{display:block;font-variation-settings:"wdth" 80,"wght" 800;font-size:1.7rem;line-height:1}
+.kpis span{font-size:.8rem;color:var(--muted)}
+.bars{display:grid;gap:7px;margin:6px 0 14px}
+.bars div{display:grid;grid-template-columns:118px 1fr 34px;align-items:center;gap:8px;font-size:.82rem}
+.bars i{display:block;height:10px;background:var(--ink)}
+.sample{display:inline-block;font-family:var(--mono);font-size:.62rem;background:var(--yellow);padding:2px 6px;letter-spacing:.05em;text-transform:uppercase}
+
+/* 05 roadmap */
+.road{display:grid;border-top:1px solid var(--ink)}
+@media(min-width:900px){.road{grid-template-columns:repeat(3,1fr)}}
+.phase{padding:24px 22px 26px 0;border-bottom:1px solid var(--ink)}
+@media(min-width:900px){.phase{border-bottom:0;border-right:1px solid var(--ink);padding-left:22px}.phase:first-child{padding-left:0}.phase:last-child{border-right:0}}
+.phase .mono{color:var(--red)}
+.phase h3{font-size:clamp(1.9rem,3vw,2.5rem);margin:8px 0 14px}
+.phase ul{padding-left:18px;display:grid;gap:8px;color:#2b2a27}
+.phase .out{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:.92rem}
+.phase .out b{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+
+/* 06 calculator */
+.calc{display:grid;gap:30px;align-items:start}
+@media(min-width:980px){.calc{grid-template-columns:1fr 1fr}}
+.inputs{display:grid;gap:20px}
+.inp label{display:flex;justify-content:space-between;gap:10px;font-weight:600;margin-bottom:8px}
+.inp label output{font-family:var(--mono);font-weight:500}
+.inp input[type=range]{width:100%;accent-color:var(--ink)}
+.inp small{color:var(--muted);display:block;margin-top:4px}
+.result{background:var(--ink);color:var(--cream);padding:28px}
+.result .mono{color:var(--yellow)}
+.result b.big{display:block;font-variation-settings:"wdth" 70,"wght" 900;font-size:clamp(3.2rem,8vw,5.4rem);line-height:.95;margin:10px 0 6px}
+.result ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:8px;border-top:1px solid rgba(241,238,230,.25);padding-top:14px;font-size:.95rem}
+.result li{display:flex;justify-content:space-between;gap:10px}
+.result small{display:block;margin-top:16px;opacity:.7;font-size:.82rem}
+
+/* 07 offer */
+.offer{display:grid;gap:0;border:1px solid var(--ink)}
+@media(min-width:860px){.offer{grid-template-columns:1fr 1fr}}
+.offer div{padding:28px}
+.offer div+div{border-top:1px solid var(--ink)}
+@media(min-width:860px){.offer div+div{border-top:0;border-left:1px solid var(--ink)}}
+.offer .price{font-variation-settings:"wdth" 75,"wght" 900;font-size:2.8rem;line-height:1;margin:10px 0 14px}
+.offer ul{padding-left:18px;display:grid;gap:6px;color:#2b2a27}
+
+/* final cta */
+.final{background:var(--red);color:var(--ink);padding:80px 0}
+.final h2{font-size:clamp(3rem,8vw,6.6rem)}
+.final .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 22px;font-weight:700;border:1.5px solid var(--ink)}
+.btn.dark{background:var(--ink);color:var(--cream)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.foot{padding:28px 0 40px;color:var(--muted);font-size:.85rem}
+.foot .wrap{display:grid;gap:6px}
+
+/* booking drawer (Calendly) */
+.book{position:fixed;inset:0;z-index:90;display:none}
+.book.open{display:block}
+.book .bg{position:absolute;inset:0;background:rgba(13,13,15,.55)}
+.book .panel{position:absolute;right:0;top:0;bottom:0;width:min(560px,100%);background:var(--cream);border-left:1px solid var(--ink);display:flex;flex-direction:column}
+.book .ph{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--ink)}
+.book iframe{flex:1;border:0;width:100%}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+@media(max-width:700px){
+  .sec{padding:56px 0}
+  .browser{box-shadow:6px 6px 0 var(--ink)}
+}
+
+:root{--m-bg:#F5F6F2;--m-surface:#FFFFFF;--m-ink:#1A2048;--m-muted:#5E6378;--m-line:#E1E4DA;--m-acc:#2C356D;--m-acc2:#A3C447;--m-on-acc:#FFFFFF;--m-dark:#1A2048;--m-dark-rgb:26,32,72;--m-head:'Barlow Condensed',system-ui,sans-serif;--m-hw:700;--m-hw2:600;--m-hls:0;--m-em:italic;--m-body:'Barlow',system-ui,sans-serif;--m-logo:'Barlow Condensed',sans-serif;--m-logow:700;--m-logos:2.6cqi;--m-logols:.08em;--m-rad:.8;--m-tile1:#FFFFFF;--m-tile2:#EEF3E0;--m-tile3:#FFFFFF;--m-tile4:#EEF3E0}
+.n-sec:not(.n-dark) .n-head h3 em{color:var(--m-acc)}.v-overlay .n-hero{background-position:center 40%}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="https://qanatstudio.com"><b>QANAT</b><span class="mono">Prepared for BounceBack Physiotherapy · Oct 2026</span></a>
+    <a class="cta-s" href="#talk" data-book>Book 30 min ↗</a>
+  </div>
+</header>
+
+<section class="sec hero">
+  <div class="wrap">
+    <div>
+      <p class="mono" style="color:var(--red);margin-bottom:18px">A diagnostic for Tim Fletcher and Simon Case</p>
+      <h1 class="cond">BounceBack,<br>booked <em>at the right clinic.</em></h1>
+    </div>
+    <div class="letter">
+      <p>Tim, Simon, we spent a morning on bounceback.ae the way a new patient would.</p>
+      <p>Below is what we found, what your homepage could look like, how a booking would flow on WhatsApp across your three clinics, and a 90-day plan. Everything uses your real clinic, your team and your patients’ words.</p>
+      <p style="color:var(--muted)">Yahia El Bellaj, Founder of Qanat</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="facts"><div><b>2015</b><span class="mono">Founded on Yas</span></div><div><b>3</b><span class="mono">Clinics in Abu Dhabi</span></div><div><b>4.8★</b><span class="mono">118 Google reviews</span></div><div><b>75+ yrs</b><span class="mono">Combined experience</span></div></div></div>
+</section>
+
+<section class="sec" id="today">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">01 · What a new patient sees today</span>
+      <h2 class="cond">Three clinics.<br>A one-island website.</h2>
+      <p>Your homepage, as it loaded on 27 October. BounceBack has grown into three clinics; the website still reads like the Yas clinic of a few years ago, and the booking form can’t say where the patient wants to go.</p>
+    </div>
+    <div class="today">
+      <div class="browser rv">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">bounceback.ae</span></div>
+        <img src="before.jpg" alt="BounceBack homepage today" loading="lazy">
+      </div>
+      <ol class="findings rv"><li><span class="n">01</span><div><b>The booking form can’t say which clinic.</b><p>The Request Appointment form has no location field, although you now run Yas Marina, Galleria Mall and Hudayriyat Island with different phones and hours. It also skips Women’s Health and children’s bladder &amp; bowel physio, and time is only “Am / PM”.</p></div></li><li><span class="n">02</span><div><b>The homepage still says one island.</b><p>The hero reads “Right Here on Yas Island”. The contact overview lists Yas and Hudayriyat only, the Galleria page places Galleria Mall on Hudayriyat Island, and Hudayriyat’s Saturday hours read “7:20-7:20”.</p></div></li><li><span class="n">03</span><div><b>The proof is from 2019.</b><p>The strongest number on the homepage, 9.8/10 satisfaction, comes from a 2019 survey. The About page says “nearly 5 years” in Abu Dhabi, and the footer reads © 2018.</p></div></li><li><span class="n">04</span><div><b>727 patients in 8 months, 118 reviews.</b><p>Your own survey counted 727 patients in eight months of 2019. The Yas Google listing shows 118 reviews after 11 years and three clinics, and nothing in the journey asks happy patients for one.</p></div></li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="new">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">02 · Your new homepage, first draft</span>
+      <h2 class="cond">Abu Dhabi’s sports physios,<br>in three places.</h2>
+      <p>Same navy, same lime, same running swoosh. We studied the best sports-physio sites and kept what earns trust and bookings: real people, a clear method, and booking by clinic. Try the booking card: switch clinics.</p>
+    </div>
+    <div class="dir rv">
+      <div><span class="mono">Palette · taken from your logo</span><div class="sw"><div><i style="background:#F5F6F2"></i><span>Chalk<br>#F5F6F2</span></div><div><i style="background:#2C356D"></i><span>BounceBack navy<br>#2C356D</span></div><div><i style="background:#1A2048"></i><span>Deep navy<br>#1A2048</span></div><div><i style="background:#A3C447"></i><span>Lime<br>#A3C447</span></div><div><i style="background:#EEF3E0"></i><span>Pitch<br>#EEF3E0</span></div></div></div>
+      <div class="type"><span class="mono">Type</span><p class="f1">Strong, <em>straight.</em></p><p class="f2">Barlow Condensed for headlines, with the energy of a team sheet; Barlow for reading. Your swoosh and bilingual logo stay.</p></div>
+      <div><span class="mono">Principles</span><ul class="princ"><li><b>Real people.</b> Tim, Simon and the team.</li><li><b>Book by clinic.</b> Yas, Galleria, Hudayriyat.</li><li><b>Fresh proof.</b> This year’s reviews, not 2019.</li></ul></div>
+    </div>
+    <div class="duo">
+      <div class="rv">
+        <div class="browser">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">bounceback.ae · draft by Qanat</span></div>
+          <div class="site v-overlay">
+            <div class="n-hero" style="background-image:url(hero.jpg)">
+              <nav class="n-nav">
+                <span class="n-logo"><b>BOUNCEBACK</b><small>Physiotherapy · Abu Dhabi</small></span>
+                <span class="n-links"><span>Treatments</span><span>Our team</span><span>Clinics</span><span>Insurance</span><span>العربية</span></span>
+                <span class="n-book">Book a session</span>
+              </nav>
+              <span class="pin" style="left:1.4cqi;top:10.6cqi">1</span>
+              <div class="n-copy">
+                <span class="n-eyebrow">Sports physiotherapy · Abu Dhabi · since 2015</span>
+                <h3 class="n-h">Back in the game,<br><em>at three clinics.</em></h3>
+                <p class="n-p">Founded on Yas Island in 2015 by two ex-rugby physiotherapists. Sports injuries, women’s health and children’s physio, now at Yas Marina, Galleria Mall and Hudayriyat Island.</p>
+                <div class="n-ctas"><span class="n-btn">Book a session</span><span class="n-btn ghost">Find your clinic</span></div>
+              </div>
+            </div>
+            <div class="n-float"><span class="pin" style="left:-1.2cqi;top:-1.2cqi">2</span><div class="widget" data-widget>
+                <div class="w-title"><b>Book a session</b><span>● Slots today</span></div>
+                <div class="w-tabs" role="tablist"><button role="tab" aria-selected="true" data-k="yas">Yas Marina</button><button role="tab" aria-selected="false" data-k="gal">Galleria</button><button role="tab" aria-selected="false" data-k="hud">Hudayriyat</button></div>
+                <div class="w-row"><select class="w-sel" aria-label="Service"><option>Physiotherapy · 40 min</option><option>Sports injury</option><option>Women’s health physio</option><option>Children’s bladder &amp; bowel</option><option>Acupuncture &amp; dry needling</option><option>Sports massage</option><option>Gait analysis</option></select></div>
+                <div class="w-row" data-slots></div>
+                <p class="w-note" data-note></p>
+              </div></div>
+            <div class="n-stats"><span class="pin" style="left:1.4cqi;top:3.4cqi">3</span><div><b>2015</b><span>Since</span></div><div><b>3</b><span>Clinics</span></div><div><b>4.8★</b><span>118 reviews</span></div><div><b>75+ yrs</b><span>Combined experience</span></div></div>
+            <div class="n-sec" style="padding-top:2cqi">
+              <span class="pin" style="left:1.4cqi;top:3cqi">4</span>
+              <div class="n-head"><h3>What brings people <em>to BounceBack</em></h3><span>All treatments →</span></div>
+              <div class="n-cards"><div class="n-card"><svg viewBox="0 0 32 32"><circle cx="19" cy="6" r="2.5"/><path d="M11 28l4-8 4 3 2 5"/><path d="M8 16l5-4 5 1 3 4 4 1"/><path d="M15 20l3-7"/></svg><b>Sports physiotherapy</b><p>Sports injuries, pre and post-op orthopaedics, neck and back pain. 40-minute sessions.</p><u>Book a session →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><path d="M16 26s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z"/></svg><b>Women’s health</b><p>A dedicated women’s health physiotherapy service.</p><u>Book a session →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M13 12h.01M19 12h.01M14 15c1 1 3 1 4 0"/><path d="M8 28c1-5 4-8 8-8s7 3 8 8"/></svg><b>Children’s bladder &amp; bowel</b><p>Specialist paediatric continence physiotherapy.</p><u>Book a consultation →</u></div><div class="n-card"><svg viewBox="0 0 32 32"><path d="M12 4c0 6 2 9 2 12s-3 5-3 12"/><path d="M20 4c0 6-2 9-2 12s3 5 3 12"/><circle cx="16" cy="16" r="2.5"/></svg><b>Gait analysis</b><p>A one-hour analysis of how you walk and run.</p><u>Book an analysis →</u></div></div>
+            </div>
+            <div class="n-sec"><span class="pin" style="left:1.4cqi;top:3cqi">5</span><div class="n-doc">
+                <span class="wm">BB</span>
+                <img src="lead.jpg" alt="Tim Fletcher &amp; Simon Case">
+                <div>
+                  <span class="n-eyebrow">Founded by two rugby physios</span>
+                  <p class="q" style="margin-top:1.4cqi">“We don’t just treat the symptoms, we diagnose and treat the cause. It’s how we looked after the UAE rugby team, and how we have looked after every patient since 2015.”</p>
+                  <p class="who"><b>Tim Fletcher &amp; Simon Case</b>Co-founders · Senior Physiotherapists</p>
+                  <ul><li>First captain of the UAE rugby team (Tim)</li><li>Former Lead Physio, UAE national rugby (Simon)</li><li>DOH-licensed team</li></ul>
+                </div>
+              </div></div>
+            <div class="n-sec n-dark" style="--m-ncl:2">
+              <div class="n-head"><h3>Inside <em>Yas Marina</em></h3><span>All three clinics →</span></div>
+              <div class="n-clin"><figure><div class="ph" style="background-image:url(place2.jpg);background-position:center 45%"></div><b>The gym</b><p>Rehab that carries on after the treatment table, with your physio.</p><u>Book at Yas →</u></figure><figure><div class="ph" style="background-image:url(hero.jpg);background-position:center"></div><b>Six treatment rooms</b><p>Private rooms on the 1st floor of the Rotunda Building, with free parking.</p><u>Get directions →</u></figure></div>
+            </div>
+            <div class="n-sec">
+              <div class="n-head"><h3>In our patients’ <em>words</em></h3><span>118 reviews on Google →</span></div>
+              <div class="n-revs"><div class="n-rev"><i>❝</i><p>“Can’t recommend Tim highly enough. Sorted me out and got me back in the game.”</p><span>Rikard K., European Tour golfer · Testimonial</span></div><div class="n-rev"><i>❝</i><p>“Great service, professional staff! My back is fixed and I am feeling like a new person!”</p><span>Ekaterina K. · Testimonial</span></div><div class="n-rev"><i>❝</i><p>“Unbelievably talented and dedicated Physiotherapist.”</p><span>Russ F., Ironman athlete · Testimonial</span></div></div>
+            </div>
+            <div class="n-foot"><span>BounceBack Physiotherapy · since 2015</span><span>Yas Marina · Galleria Mall · Hudayriyat Island</span></div>
+          </div>
+        </div>
+        <div class="notes"><div class="note"><b><i>1</i>Your clinic is the hero.</b><p>Your own Yas corridor replaces the marina exterior, and the first line says what patients come for: back in the game.</p></div><div class="note"><b><i>2</i>Book by clinic.</b><p>Yas, Galleria or Hudayriyat first, then a real slot. No “Am / PM”, no call back.</p></div><div class="note"><b><i>3</i>Proof in one glance.</b><p>Since 2015, three clinics, 4.8 stars: where a new patient decides.</p></div><div class="note"><b><i>4</i>Services that sell.</b><p>Sports physio, women’s health and children’s physio, each with its own page, booking link and tracking.</p></div><div class="note"><b><i>5</i>The founders’ story.</b><p>Tim and Simon, and the rugby years, on the homepage. The quote builds on your own tagline and is a draft.</p></div><div class="note"><b><i>+</i>Fresh proof.</b><p>Google reviews from each clinic replace the 2019 survey, and the footer never says 2018 again.</p></div></div>
+      </div>
+      <div class="rv">
+        <div class="phone">
+          <div class="m-site">
+            <div class="m-hero" style="background-image:url(hero.jpg)">
+              <div class="m-top"><b>BOUNCEBACK</b><span>≡</span></div>
+              <div class="m-copy"><h3 class="m-h">Back in the game, <em>at three clinics.</em></h3><p class="m-p">Yas · Galleria · Hudayriyat.</p></div>
+            </div>
+            <div class="m-w widget" data-widget>
+              <div class="w-title"><b>Book a session</b><span>● Slots today</span></div>
+              <div class="w-tabs" role="tablist"><button role="tab" aria-selected="true" data-k="yas">Yas Marina</button><button role="tab" aria-selected="false" data-k="gal">Galleria</button><button role="tab" aria-selected="false" data-k="hud">Hudayriyat</button></div>
+              <div class="w-row" data-slots></div>
+            </div>
+            <div class="m-stats"><div><b>2015</b><span>Since</span></div><div><b>3</b><span>Clinics</span></div><div><b>4.8★</b><span>Google</span></div></div>
+            <div class="m-bar"><a class="wa" href="#wa">WhatsApp us</a><a class="bk" href="#new">Book a session</a></div>
+          </div>
+        </div>
+        <p class="hand" style="text-align:center;margin-top:16px">Right clinic, right slot,<br>one thumb away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="wa">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">03 · The patient journey, on WhatsApp</span>
+      <h2 class="cond">Asked after training.<br>Booked at Galleria.</h2>
+      <p>One WhatsApp line, the one already on your site. It asks which clinic first, then the service, offers real slots and sends the pay-and-claim paperwork before the visit. Your team takes over whenever a human is better.</p>
+    </div>
+    <div class="wa-grid">
+      <div class="phone rv">
+        <div class="chat">
+          <div class="hd"><i>BB</i><div>BounceBack Physiotherapy<small>Typically replies instantly</small></div></div>
+          <span class="day">Tuesday</span><div class="b out">Hi, I tweaked my hamstring at football tonight. Can I see someone this week? I work on Al Maryah.<span class="t">21:40</span></div><div class="b in">Hi Karim, sorry to hear that. Galleria Mall is the closest clinic to you. Shall we book there?<div class="opts"><span>Galleria</span><span>Yas Marina</span><span>Hudayriyat</span></div><span class="t">21:40</span></div><div class="b out">Galleria<span class="t">21:41</span></div><div class="b in">Here are the next physio slots at Galleria:<div class="opts"><span>Wed 7:00 am</span><span>Wed 1:30 pm</span><span>Thu 6:00 pm</span></div><span class="t">21:41</span></div><div class="b out">Wed 7:00 am<span class="t">21:41</span></div><div class="b in">Booked: sports physio, Wednesday 7:00 am, Galleria Mall. We work on pay-and-claim: the claim form is attached, and please bring your Emirates ID.<span class="t">21:42</span></div><span class="day">Wednesday</span><div class="b in">Morning Karim, see you at 7:00 at Galleria. Reply 1 to confirm, 2 to move it.<span class="t">06:00</span></div><div class="b out">1<span class="t">06:12</span></div><span class="day">Monday</span><div class="b in">How is the hamstring? Your follow-up is Thursday 6:00 pm. Keep up the two exercises from Wednesday 💪<span class="t">17:30</span></div>
+        </div>
+        <p class="mono" style="text-align:center;margin-top:12px;color:var(--muted)">Sample conversation</p>
+      </div>
+      <div class="flows rv"><div class="flow"><span class="when">First message</span><div><b>Which clinic?</b><p>Yas, Galleria or Hudayriyat first, then the service, including women’s health and children’s physio.</p></div></div><div class="flow"><span class="when">Any time</span><div><b>Real slots</b><p>The patient picks a time at the right clinic. No “Am / PM”, no call back.</p></div></div><div class="flow"><span class="when">Before the visit</span><div><b>Pay-and-claim, sorted</b><p>Registration form, Emirates ID reminder and claim paperwork sent before the patient arrives.</p></div></div><div class="flow"><span class="when">Between sessions</span><div><b>Plan and home exercises</b><p>Session reminders and a check-in on the exercises, so patients finish their plan.</p></div></div><div class="flow"><span class="when">Discharge</span><div><b>Review request, per clinic</b><p>Sent to the right Google listing, so each clinic builds its own reviews.</p><q>727 patients in eight months, 118 reviews in eleven years: the gap is a habit, not quality.</q></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="report">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">04 · One number every Monday</span>
+      <h2 class="cond">Know which clinic<br>fills which slot.</h2>
+      <p>Today it’s hard to tell which ad, page or channel brought a new patient, or to which clinic. Every Monday at 8 am you get one short email: new patients per clinic, per service and per source.</p>
+    </div>
+    <div class="report">
+      <div class="mail rv">
+        <p class="from">From: Qanat · To: Tim Fletcher &amp; Simon Case · Mon 08:00</p>
+        <h4>BounceBack · week 47 <span class="sample">Sample</span></h4>
+        <div class="kpis"><div><b>54</b><span>New patients</span></div><div><b>21</b><span>At Galleria</span></div><div><b>88%</b><span>Plans completed</span></div><div><b>+9</b><span>New Google reviews</span></div></div>
+        <p class="mono" style="color:var(--muted)">New patients by clinic</p>
+        <div class="bars"><div><span>Yas Marina</span><i style="width:100%"></i><span>22</span></div><div><span>Galleria Mall</span><i style="width:95%"></i><span>21</span></div><div><span>Hudayriyat</span><i style="width:50%"></i><span>11</span></div></div>
+        <p style="font-size:.9rem;color:#3a3935">Women’s health: 6 new patients, all from Instagram. Suggestion: a dedicated women’s health page and campaign.</p>
+      </div>
+      <div class="rv" style="display:grid;gap:18px;font-size:1.02rem">
+        <p><b>These figures are illustrative.</b> They show the format, not a promise. Your real report starts in week 3, once booking and tracking are live.</p>
+        <p>Every booking is tagged with its clinic and its source (Google, Instagram, a club, a doctor’s referral), so you can decide where to spend with facts, clinic by clinic.</p>
+        <p class="hand">No dashboard to log into.<br>Just one email you read with your coffee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plan">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="mono">05 · The first 90 days</span><h2 class="cond">Three months,<br>three milestones.</h2></div>
+    <div class="road rv"><div class="phase"><span class="mono">Days 1 to 30</span><h3 class="cond">Open the door</h3><ul><li>New homepage built around your team and your method</li><li>One WhatsApp number that books real slots</li><li>Insurance and forms handled before the first visit</li><li>Google Business profile cleaned up</li></ul><p class="out"><b>You’ll see</b>Patients booking an assessment, any time.</p></div><div class="phase"><span class="mono">Days 31 to 60</span><h3 class="cond">Keep every plan on track</h3><ul><li>Session reminders and home-exercise check-ins</li><li>Rebooking when a plan is left unfinished</li><li>Review request at discharge</li><li>Monday report, live</li></ul><p class="out"><b>You’ll see</b>More patients finish their plan.</p></div><div class="phase"><span class="mono">Days 61 to 90</span><h3 class="cond">Grow what pays</h3><ul><li>Campaigns per condition: back pain, sports injuries, post-surgery</li><li>Each with its own page and its own cost per assessment</li><li>Corporate and referral partners tracked</li><li>Monthly review with you: keep, cut, scale</li></ul><p class="out"><b>You’ll see</b>What one new patient really costs you.</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="worth">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="mono">06 · What it could be worth</span>
+      <h2 class="cond">Your numbers,<br>not ours.</h2>
+      <p>We don’t know your diary, so we won’t pretend. Move the sliders to your own figures and see what fewer missed sessions and after-hours bookings would add each month.</p>
+    </div>
+    <div class="calc rv">
+      <div class="inputs"><div class="inp"><label>Sessions booked per month, all clinics <output id="o-appt"></output></label><input id="appt" type="range" min="20" max="3000" step="10" value="900"></div><div class="inp"><label>Average value of a session (AED) <output id="o-val"></output></label><input id="val" type="range" min="100" max="1200" step="50" value="550"></div><div class="inp"><label>No-show or late-cancel rate today <output id="o-ns"></output></label><input id="ns" type="range" min="2" max="25" step="1" value="10"><small>Physio clinics lose most to late cancellations and unfinished plans. We assume reminders recover one third.</small></div><div class="inp"><label>Extra assessments from WhatsApp and evenings <output id="o-ex"></output></label><input id="ex" type="range" min="0" max="15" step="1" value="4"><small>Enquiries that today wait until the next working morning.</small></div></div>
+      <div class="result">
+        <span class="mono">Estimated extra revenue per month</span>
+        <b class="big" id="r-total">AED 0</b>
+        <span>with your assumptions, before any advertising</span>
+        <ul>
+          <li><span>Sessions saved</span><span id="r-a">0</span></li>
+          <li><span>Extra bookings</span><span id="r-b">0</span></li>
+          <li><span>Over 12 months</span><span id="r-year">AED 0</span></li>
+        </ul>
+        <small>An estimate to start the conversation, not a promise. We measure the real figures from week 3.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="talk">
+  <div class="wrap">
+    <p class="mono">Next step</p>
+    <h2 class="cond">30 minutes.<br>Your diary, your screen.</h2>
+    <p style="max-width:560px;margin-top:18px;font-size:1.1rem">We’ll walk through this draft together, adjust it to how BounceBack really works, and you decide if it’s worth doing. No slides.</p>
+    <div class="row">
+      <a class="btn dark" href="https://calendly.com/hello-qanatstudio/30min" data-book>Book 30 minutes ↗</a>
+      <a class="btn" href="https://wa.me/971551397867?text=Hi%20Yahia,%20I%20saw%20the%20BounceBack%20diagnostic">WhatsApp Yahia</a>
+      <a class="btn" href="mailto:hello@qanatstudio.com?subject=BounceBack%20diagnostic">hello@qanatstudio.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Prepared by Qanat for BounceBack Physiotherapy only, October 2026. This page is not listed or indexed.</p>
+    <p>The draft homepage uses BounceBack’s own name, photos, testimonials and public information for illustration. Testimonials as shown on bounceback.ae on 27 October 2026; rating as listed on Google. Quotes attributed to Tim and Simon are drafts built on your own tagline. Sample figures are marked as such.</p>
+  </div>
+</footer>
+
+<div class="book" aria-hidden="true">
+  <div class="bg" data-close></div>
+  <div class="panel">
+    <div class="ph"><span class="mono">Book 30 minutes with Yahia</span><button data-close aria-label="Close">✕</button></div>
+    <iframe title="Calendly" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+(function(){
+  var data={"yas": {"slots": ["Today 6:20 pm", "Tomorrow 7:20 am", "Thu 12:40"], "note": "Rotunda Building, Yas Marina \u00b7 free on-site parking"}, "gal": {"slots": ["Today 7:00 pm", "Tomorrow 8:00", "Fri 1:30 pm"], "note": "Galleria Mall, Al Maryah Island \u00b7 open daily 7 am to 8 pm"}, "hud": {"slots": ["Tomorrow 7:20 am", "Thu 5:40 pm", "Sun 9:00"], "note": "The Service Course, Hudayriyat Island \u00b7 Sunday to Friday"}};
+  var bookLabel="Book";
+  document.querySelectorAll('[data-widget]').forEach(function(w){
+    var slots=w.querySelector('[data-slots]'),note=w.querySelector('[data-note]');
+    function show(k){
+      slots.innerHTML='';
+      data[k].slots.forEach(function(s,i){var b=document.createElement('button');b.className='slot'+(i===0?' on':'');b.textContent=s;b.onclick=function(){slots.querySelectorAll('.slot').forEach(function(x){x.classList.remove('on')});b.classList.add('on')};slots.appendChild(b)});
+      if(!w.classList.contains('m-w')){var go=document.createElement('button');go.className='w-go';go.textContent=bookLabel;slots.appendChild(go)}
+      if(note)note.textContent=data[k].note;
+      w.querySelectorAll('[data-k]').forEach(function(t){t.setAttribute('aria-selected',t.dataset.k===k)});
+    }
+    w.querySelectorAll('[data-k]').forEach(function(t){t.onclick=function(){show(t.dataset.k)}});
+    show(Object.keys(data)[0]);
+  });
+  var site=document.querySelector('.browser .site');
+  function fit(){if(!site)return;site.style.width='';site.style.zoom='';var w=site.parentElement.clientWidth;if(w<760){site.style.width='1000px';site.style.zoom=(w/1000).toFixed(4)}}
+  fit();window.addEventListener('resize',fit);
+  function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
+  function v(id){return +document.getElementById(id).value}
+  function calc(){
+    var a=v('appt'),val=v('val'),ns=v('ns')/100,ex=v('ex');
+    document.getElementById('o-appt').textContent=a;
+    document.getElementById('o-val').textContent=fmt(val);
+    document.getElementById('o-ns').textContent=Math.round(ns*100)+'%';
+    document.getElementById('o-ex').textContent='+'+ex+' / week';
+    var saved=a*ns/3, extra=ex*52/12, total=(saved+extra)*val;
+    document.getElementById('r-a').textContent=Math.round(saved)+' sessions';
+    document.getElementById('r-b').textContent=Math.round(extra)+' sessions';
+    document.getElementById('r-total').textContent=fmt(total);
+    document.getElementById('r-year').textContent=fmt(total*12);
+  }
+  document.querySelectorAll('.inputs input').forEach(function(i){i.addEventListener('input',calc)});
+  calc();
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  var book=document.querySelector('.book'),fr=book.querySelector('iframe');
+  var cal='https://calendly.com/hello-qanatstudio/30min?hide_gdpr_banner=1&background_color=f1eee6&text_color=0d0d0f&primary_color=f2361d';
+  document.querySelectorAll('[data-book]').forEach(function(a){a.addEventListener('click',function(x){x.preventDefault();if(!fr.src)fr.src=cal;book.classList.add('open');book.setAttribute('aria-hidden','false')})});
+  book.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){book.classList.remove('open');book.setAttribute('aria-hidden','true')})});
+  document.addEventListener('keydown',function(x){if(x.key==='Escape')book.classList.remove('open')});
+})();
+</script>
+</body>
+</html>
