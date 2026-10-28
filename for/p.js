@@ -12,7 +12,7 @@
   if (store('qanat-me') === '1' || navigator.webdriver || location.protocol === 'file:' || /localhost|127\.0\.0\.1/.test(location.hostname)) return;
 
   var ref = document.referrer && !/qanatstudio\.com/.test(document.referrer) ? 'ref' : '';
-  var src = q.get('s') === 'wa' ? 'wa' : (ref || 'em');
+  var src = /^(wa|li)$/.test(q.get('s') || '') ? q.get('s') : (ref || 'em');
   var vid = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
   var seenKey = 'qanat-seen-' + slug;
   var returning = store(seenKey) ? 1 : 0;
