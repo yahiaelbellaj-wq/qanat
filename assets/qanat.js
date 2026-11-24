@@ -66,7 +66,7 @@
 (function(){
   var cal = document.documentElement.dataset.cal;
   if (!cal) return;
-  var wa = 'https://wa.me/971551397867?text=' + encodeURIComponent("Hi Yahia, I'd like to book the free 30-minute audit.");
+  var wa = 'https://wa.me/971551397867?text=' + encodeURIComponent("Hi Qanat, I'd like to book the free 30-minute audit.");
   var box = document.createElement('div');
   box.className = 'book'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true'); box.setAttribute('aria-label','Book a free audit');
   box.innerHTML = '<div class="book-bg"><span>Let\'s<br>talk<i>.</i></span></div>' +
